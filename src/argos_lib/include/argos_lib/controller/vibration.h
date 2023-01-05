@@ -94,4 +94,16 @@ namespace argos_lib {
                                         double intensityOn,
                                         double intensityOff = 0.0);
 
+  /**
+   * @brief Run a vibration model for a specified duration, then run another model in perpetuity thereafter
+   *
+   * @param temporaryModel Model to run for the specified duration
+   * @param temporaryModelDuration Amount of time to run temporaryModel
+   * @param lastingModel Model to run forever after the specified duration
+   * @return VibrationModel
+   */
+  VibrationModel TemporaryVibrationPattern(VibrationModel temporaryModel,
+                                           units::millisecond_t temporaryModelDuration,
+                                           VibrationModel lastingModel = VibrationOff());
+
 }  // namespace argos_lib

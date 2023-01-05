@@ -18,15 +18,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      - name: Install clang-format
-        run: sudo apt-get update -q && sudo apt-get install -y clang-format-10
       - name: Install wpiformat
-        run: pip3 install wpiformat
+        run: pip3 install wpiformat==2022.21 clang-format
       - name: Rename branch
         if: ${{ github.ref != 'refs/heads/main' }}
         run: git checkout -b main HEAD
       - name: Run
-        run: wpiformat -clang 10
+        run: wpiformat
       - name: Check for modified files
         id: git-check
         run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)

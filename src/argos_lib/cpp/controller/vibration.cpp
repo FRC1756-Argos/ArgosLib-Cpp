@@ -78,3 +78,17 @@ VibrationModel argos_lib::VibrationAlternateWave(units::millisecond_t pulsePerio
                            intensityOff + vibrationIntensityRight * (intensityOn - intensityOff)};
   };
 }
+
+VibrationModel argos_lib::TemporaryVibrationPattern(argos_lib::VibrationModel temporaryModel,
+                                                    units::millisecond_t temporaryModelDuration,
+                                                    argos_lib::VibrationModel lastingModel) {
+  auto startTime = std::chrono::steady_clock::now();
+  return [startTime, temporaryModel, lastingModel, temporaryModelDuration]() {
+    const units::millisecond_t duration{std::chrono::steady_clock::now() - startTime};
+    if (duration > temporaryModelDuration) {
+      return lastingModel();
+    } else {
+      return temporaryModel();
+    }
+  };
+}

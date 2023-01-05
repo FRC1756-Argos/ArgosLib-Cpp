@@ -52,5 +52,29 @@ namespace argos_lib {
       return 0 != encoder.ConfigAllSettings(config, timeout);
     }
 
+    /**
+     * @brief Configures a CTRE CanCoder with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param encoder CANCoder object to configure
+     * @param configTimeout Time to wait for response from CANCoder
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool CanCoderConfig(CANCoder& encoder, units::millisecond_t configTimeout, argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return CanCoderConfig<CompetitionConfig>(encoder, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return CanCoderConfig<PracticeConfig>(encoder, configTimeout);
+          break;
+      }
+      return false;
+    }
+
   }  // namespace cancoder_config
 }  // namespace argos_lib

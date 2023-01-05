@@ -14,34 +14,35 @@ namespace argos_lib {
    *
    * @tparam T Internal type.  Typically float or double
    */
-  template <class T>
+  template <class T, class V>
   struct InterpMapPoint {
     T inVal;
-    T outVal;
+    V outVal;
 
-    constexpr InterpMapPoint(T in, T out) : inVal(in), outVal(out) {}
+    constexpr InterpMapPoint(T in, V out) : inVal(in), outVal(out) {}
 
-    constexpr bool operator<(const InterpMapPoint<T>& other) { return inVal < other.inVal; }
-    constexpr bool operator==(const InterpMapPoint<T>& other) { return inVal == other.inVal; }
+    constexpr bool operator<(const InterpMapPoint<T, V>& other) { return inVal < other.inVal; }
+    constexpr bool operator==(const InterpMapPoint<T, V>& other) { return inVal == other.inVal; }
   };
 
-  template <class T>
-  constexpr bool operator<(const InterpMapPoint<T>& a, const T& b) {
+  template <class T, class V>
+  constexpr bool operator<(const InterpMapPoint<T, V>& a, const T& b) {
     return a.inVal < b;
   }
 
-  template <class T>
-  constexpr bool operator<(const T& a, const InterpMapPoint<T>& b) {
+  template <class T, class V>
+  constexpr bool operator<(const T& a, const InterpMapPoint<T, V>& b) {
     return a < b.inVal;
   }
 
   /**
    * @brief Performs linear interpolation of a value based on a set of input->output mapping points
    *
-   * @tparam T Internal type of values being interpolated.  Typically float or double
+   * @tparam T Type of interpolated input
    * @tparam size Number of elements in interpolation map
+   * @tparam V Type of interpolated output
    */
-  template <class T, int size>
+  template <class T, int size, class V = T>
   class InterpolationMap {
    public:
     InterpolationMap() = delete;
@@ -50,7 +51,7 @@ namespace argos_lib {
      *
      * @param initArray Interpolation points.  Must be sorted by input value with smallest element first.
      */
-    constexpr InterpolationMap(std::array<InterpMapPoint<T>, size> initArray) : m_mapArray(initArray) {
+    constexpr InterpolationMap(std::array<InterpMapPoint<T, V>, size> initArray) : m_mapArray(initArray) {
       // assert(("Map must contain at least one value.", !initArray.empty()));
       // assert(("Map values must be sorted.", std::is_sorted(initArray.cbegin(), initArray.cend())));
     }
@@ -61,7 +62,7 @@ namespace argos_lib {
      * @param inVal Input value to remap
      * @return Interpolated value
      */
-    constexpr T Map(const T inVal) const {
+    constexpr V Map(const T inVal) const {
       if (inVal >= m_mapArray.back().inVal) {
         return m_mapArray.back().outVal;
       } else if (inVal <= m_mapArray.front().inVal) {
@@ -75,14 +76,14 @@ namespace argos_lib {
     }
 
     /**
-     * @brief Shorthand for InterpolationMap::Map()
+     * @copydoc argos_lib::InterpolationMap::Map()
      *
-     * @copy_doc argos_lib::InterpolationMap::Map()
+     * @brief Shorthand for InterpolationMap::Map()
      */
-    constexpr T operator()(const T inVal) { return Map(inVal); }
+    constexpr V operator()(const T inVal) const { return Map(inVal); }
 
    private:
-    std::array<InterpMapPoint<T>, size> m_mapArray;
+    std::array<InterpMapPoint<T, V>, size> m_mapArray;
   };
 
 }  // namespace argos_lib

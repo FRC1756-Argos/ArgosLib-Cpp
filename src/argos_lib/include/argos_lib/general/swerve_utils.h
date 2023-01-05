@@ -11,6 +11,8 @@
 
 #include <optional>
 
+#include "interpolation.h"
+
 namespace argos_lib {
   namespace swerve {
 
@@ -78,6 +80,34 @@ namespace argos_lib {
       units::degree_t RearRight;
       units::degree_t RearLeft;
     };
+
+    /**
+     * @brief Translation speeds as percent max output
+     */
+    struct TranslationSpeeds {
+      double forwardSpeedPct;  ///< Speed with positive forward in range [-1, 1]
+      double leftSpeedPct;     ///< Speed with positive left in range [-1, 1]
+    };
+
+    /**
+     * @brief Use argos_lib::InterpolationMap to apply mapping according to joystick vector magnitude
+     *
+     * @tparam T Type of interpolated input
+     * @tparam size Number of elements in interpolation map
+     * @tparam V Type of interpolated output
+     * @param rawSpeeds Joystick inputs as percentages
+     * @param interpMap Interpolation map to apply to magnitudes
+     * @return Remapped joystick percentages.  Angle of vector will match rawSpeeds, but magnitude will
+     *         scale according to interpMap.  This results in circular deadband and other mapping results.
+     */
+    template <class T, int size, class V>
+    [[nodiscard]] constexpr TranslationSpeeds CircularInterpolate(
+        const TranslationSpeeds rawSpeeds, const argos_lib::InterpolationMap<T, size, V> interpMap) {
+      const double magnitude = std::sqrt(std::pow(rawSpeeds.forwardSpeedPct, 2) + std::pow(rawSpeeds.leftSpeedPct, 2));
+      const double angle = std::atan2(rawSpeeds.leftSpeedPct, rawSpeeds.forwardSpeedPct);
+      const double mappedMagnitude = interpMap(magnitude);
+      return TranslationSpeeds{mappedMagnitude * std::cos(angle), mappedMagnitude * std::sin(angle)};
+    }
 
     /**
      * @brief Interface capable of saving and loading module home positions from persistent storage

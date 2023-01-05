@@ -10,6 +10,11 @@
 
 namespace argos_lib {
 
+  /**
+ * @brief Allows two controllers to swap between "Driver" and "Operator" control schemes on the fly
+ * by swapping the m_driverController and m_operatorController objects
+ *
+ */
   class SwappableControllersSubsystem : public frc2::SubsystemBase {
    public:
     SwappableControllersSubsystem() = delete;

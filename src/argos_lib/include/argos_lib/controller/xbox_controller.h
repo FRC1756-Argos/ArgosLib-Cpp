@@ -15,6 +15,11 @@ namespace argos_lib {
 
   class XboxController : public frc::GenericHID {
    public:
+    /**
+     * @brief Replaces legacy joystick hand API for WPILib
+     */
+    enum class JoystickHand { kLeftHand, kRightHand };
+
     enum class Button {
       kA = 1,
       kB = 2,
@@ -33,6 +38,18 @@ namespace argos_lib {
       kDown = 15,          ///< virtual button
       kLeft = 16,          ///< virtual button
       COUNT
+    };
+
+    /**
+     * @brief State of an individual button
+     */
+    struct UpdateStatus {
+      bool pressed = false;          ///< Transitioned from inactive to active
+      bool released = false;         ///< Transitioned from active to inactive
+      bool debouncePress = false;    ///< Transitioned from inactive to active after debounce applied
+      bool debounceRelease = false;  ///< Transitioned from active to inactive after debounce applied
+      bool rawActive = false;        ///< Raw button status
+      bool debounceActive = false;   ///< Button status after debounce applied
     };
 
     enum class Axis { kLeftX = 0, kLeftY = 1, kLeftTrigger = 2, kRightTrigger = 3, kRightX = 4, kRightY = 5, COUNT };
@@ -67,14 +84,14 @@ namespace argos_lib {
      * @param hand Left or right joystick
      * @return double Percent [-1,1]
      */
-    [[nodiscard]] double GetX(JoystickHand hand) const override;
+    [[nodiscard]] double GetX(JoystickHand hand) const;
     /**
      * @brief Get Y joystick percent from specified joystick
      *
      * @param hand Left or right joystick
      * @return double Percent [-1,1]
      */
-    [[nodiscard]] double GetY(JoystickHand hand) const override;
+    [[nodiscard]] double GetY(JoystickHand hand) const;
     /**
      * @brief Get percent from specified controller trigger button
      *
@@ -182,38 +199,23 @@ namespace argos_lib {
     [[nodiscard]] bool GetRawButtonReleased(std::initializer_list<Button> buttonCombo);
 
     /**
+     * @brief Get the active vibration model
+     *
+     * @return Active vibration model
+     */
+    VibrationModel GetVibration() const;
+
+    /**
      * @brief Sets a new vibration pattern and updates vibration output based on that new model
      *
      * @param newVibrationModel Model to generate vibration output
      */
     void SetVibration(VibrationModel newVibrationModel);
+
     /**
      * @brief Update vibration output based on current vibration model
      */
     void UpdateVibration();
-
-   private:
-    /**
-     * @brief State of an individual button
-     */
-    struct UpdateStatus {
-      bool pressed = false;          ///< Transitioned from inactive to active
-      bool released = false;         ///< Transitioned from active to inactive
-      bool debouncePress = false;    ///< Transitioned from inactive to active after debounce applied
-      bool debounceRelease = false;  ///< Transitioned from active to inactive after debounce applied
-      bool rawActive = false;        ///< Raw button status
-      bool debounceActive = false;   ///< Button status after debounce applied
-    };
-
-    /**
-     * @brief Parsed directional pad button states
-     */
-    struct DPadButtons {
-      bool up = false;     ///< Up active (including adjacent diagonals)
-      bool right = false;  ///< Right active (including adjacent diagonals)
-      bool down = false;   ///< Down active (including adjacent diagonals)
-      bool left = false;   ///< Left active (including adjacent diagonals)
-    };
 
     /**
      * @brief Determines the new status of a button.  This is used by the other
@@ -223,6 +225,17 @@ namespace argos_lib {
      * @return UpdateStatus Full button state
      */
     UpdateStatus UpdateButton(Button buttonIdx);
+
+   private:
+    /**
+     * @brief Parsed directional pad button states
+     */
+    struct DPadButtons {
+      bool up = false;     ///< Up active (including adjacent diagonals)
+      bool right = false;  ///< Right active (including adjacent diagonals)
+      bool down = false;   ///< Down active (including adjacent diagonals)
+      bool left = false;   ///< Left active (including adjacent diagonals)
+    };
 
     /**
      * @brief Convert POV angle to usable DPad button values
@@ -237,7 +250,7 @@ namespace argos_lib {
     std::array<bool, static_cast<int>(Button::COUNT)> m_buttonDebounceStatus;
     std::array<bool, static_cast<int>(Button::COUNT)> m_rawButtonStatus;
     std::array<std::chrono::time_point<std::chrono::steady_clock>, static_cast<int>(Button::COUNT)>
-        m_buttonDebounceStableTime;
+        m_buttonDebounceTransitionTime;  ///< Time when new value was first seen
 
     VibrationModel m_vibrationModel;  ///< Active vibration model
   };

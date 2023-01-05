@@ -7,8 +7,12 @@
 #include <units/current.h>
 #include <units/time.h>
 
+#include <iostream>
+
+#include "argos_lib/config/config_types.h"
 #include "compile_time_member_check.h"
 #include "ctre/Phoenix.h"
+#include "status_frame_config.h"
 
 namespace argos_lib {
   namespace falcon_config {
@@ -30,6 +34,12 @@ namespace argos_lib {
     HAS_MEMBER(pid0_kI)
     HAS_MEMBER(pid0_kP)
     HAS_MEMBER(pid0_selectedSensor)
+    HAS_MEMBER(pid1_allowableError)
+    HAS_MEMBER(pid1_iZone)
+    HAS_MEMBER(pid1_kD)
+    HAS_MEMBER(pid1_kF)
+    HAS_MEMBER(pid1_kI)
+    HAS_MEMBER(pid1_kP)
     HAS_MEMBER(remoteFilter0_addr)
     HAS_MEMBER(remoteFilter0_type)
     HAS_MEMBER(reverseLimit_deviceID)
@@ -40,6 +50,7 @@ namespace argos_lib {
     HAS_MEMBER(supplyCurrentThreshold)
     HAS_MEMBER(supplyCurrentThresholdTime)
     HAS_MEMBER(voltCompSat)
+    HAS_MEMBER(statusFrameMotorMode)
 
     /**
      * @brief Configures a CTRE Falcon with only the fields provided.  All other fields
@@ -63,6 +74,12 @@ namespace argos_lib {
      *           - pid0_kI
      *           - pid0_kP
      *           - pid0_selectedSensor
+     *           - pid1_allowableError
+     *           - pid1_iZone
+     *           - pid1_kD
+     *           - pid1_kF
+     *           - pid1_kI
+     *           - pid1_kP
      *           - remoteFilter0_addr
      *           - remoteFilter0_type
      *           - reverseLimit_deviceID
@@ -73,6 +90,7 @@ namespace argos_lib {
      *           - supplyCurrentThreshold
      *           - supplyCurrentThresholdTime
      *           - voltCompSat
+     *           - statusFrameMotorMode
      * @param motorController Falcon object to configure
      * @param configTimeout Time to wait for response from Falcon
      * @return true Configuration succeeded
@@ -101,7 +119,7 @@ namespace argos_lib {
       }
       if constexpr (has_remoteFilter0_addr<T>{} && has_remoteFilter0_type<T>{}) {
         ctre::phoenix::motorcontrol::can::FilterConfiguration filterConfig;
-        filterConfig.remoteSensorDeviceID = T::remoteFilter0_addr;
+        filterConfig.remoteSensorDeviceID = T::remoteFilter0_addr.address;
         filterConfig.remoteSensorSource = T::remoteFilter0_type;
         config.remoteFilter0 = filterConfig;
       }
@@ -137,6 +155,24 @@ namespace argos_lib {
       }
       if constexpr (has_pid0_allowableError<T>{}) {
         config.slot0.allowableClosedloopError = T::pid0_allowableError;
+      }
+      if constexpr (has_pid1_kP<T>{}) {
+        config.slot1.kP = T::pid1_kP;
+      }
+      if constexpr (has_pid1_kI<T>{}) {
+        config.slot1.kI = T::pid1_kI;
+      }
+      if constexpr (has_pid1_kD<T>{}) {
+        config.slot1.kD = T::pid1_kD;
+      }
+      if constexpr (has_pid1_kF<T>{}) {
+        config.slot1.kF = T::pid1_kF;
+      }
+      if constexpr (has_pid1_iZone<T>{}) {
+        config.slot1.integralZone = T::pid1_iZone;
+      }
+      if constexpr (has_pid1_allowableError<T>{}) {
+        config.slot1.allowableClosedloopError = T::pid1_allowableError;
       }
       if constexpr (has_supplyCurrentLimit<T>{} || has_supplyCurrentThreshold<T>{} ||
                     has_supplyCurrentThresholdTime<T>{}) {
@@ -221,12 +257,42 @@ namespace argos_lib {
         config.neutralDeadband = T::neutralDeadband;
       }
 
+      if constexpr (has_statusFrameMotorMode<T>()) {
+        argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
+      }
+
       auto retVal = motorController.ConfigAllSettings(config, timeout);
       if (0 != retVal) {
         std::cout << "Error code (" << motorController.GetDeviceID() << "): " << retVal << '\n';
       }
 
       return 0 != retVal;
+    }
+
+    /**
+     * @brief Configures a CTRE Falcon with configuration values according to specified robot instance.
+     *
+     * @tparam CompetitionConfig Configurations to use in competition robot instance
+     * @tparam PracticeConfig Configurations to use in practice robot instance
+     * @param motorController Falcon object to configure
+     * @param configTimeout Time to wait for response from Falcon
+     * @param instance Robot instance to use
+     * @return true Configuration succeeded
+     * @return false Configuration failed
+     */
+    template <typename CompetitionConfig, typename PracticeConfig>
+    bool FalconConfig(WPI_TalonFX& motorController,
+                      units::millisecond_t configTimeout,
+                      argos_lib::RobotInstance instance) {
+      switch (instance) {
+        case argos_lib::RobotInstance::Competition:
+          return FalconConfig<CompetitionConfig>(motorController, configTimeout);
+          break;
+        case argos_lib::RobotInstance::Practice:
+          return FalconConfig<PracticeConfig>(motorController, configTimeout);
+          break;
+      }
+      return false;
     }
 
   }  // namespace falcon_config
