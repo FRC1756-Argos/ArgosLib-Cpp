@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['rawactive_373',['rawActive',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac5ead71c2f9168bb43650a18606a104f',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['rearleft_374',['RearLeft',['../structargos__lib_1_1swerve_1_1_swerve_module_positions.html#abc547e5a2397cd89b8600f0dbbff5e05',1,'argos_lib::swerve::SwerveModulePositions']]],
-  ['rearright_375',['RearRight',['../structargos__lib_1_1swerve_1_1_swerve_module_positions.html#a4712a8b0b6eabababbf106a80cd579cc',1,'argos_lib::swerve::SwerveModulePositions']]],
-  ['released_376',['released',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ad769829e7275b925a9ec9cafc70e198e',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['right_377',['right',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#ad10d915cd0e43bf94764df20c1909328',1,'argos_lib::XboxController::DPadButtons']]]
+  ['offset_0',['offset',['../structargos__lib_1_1led_1_1_animation.html#a50c345c0c626c8cbd80afd20d559d857',1,'argos_lib::led::Animation']]],
+  ['outval_1',['outVal',['../structargos__lib_1_1_interp_map_point.html#aa7e32d1ba5922d09e60eb5931d0174c5',1,'argos_lib::InterpMapPoint']]]
 ];

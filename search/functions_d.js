@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updatebutton_333',['UpdateButton',['../classargos__lib_1_1_xbox_controller.html#a9646359d9a7bd868f0973d53640c24dc',1,'argos_lib::XboxController']]],
-  ['updatevibration_334',['UpdateVibration',['../classargos__lib_1_1_xbox_controller.html#a37e4539aa4e0cc854c05ffb9a24ba6db',1,'argos_lib::XboxController::UpdateVibration()'],['../classargos__lib_1_1_swappable_controllers_subsystem.html#a838b20adf26856f0c543172253084e4f',1,'argos_lib::SwappableControllersSubsystem::UpdateVibration()']]]
+  ['rendersprite_0',['RenderSprite',['../namespaceargos__lib_1_1led_1_1animation.html#a69274fb7fe440c5414f44c8d50f59ee5',1,'argos_lib::led::animation']]],
+  ['reset_1',['Reset',['../classargos__lib_1_1_debouncer.html#a622cc4901eb1594632065f3cc3ee69ff',1,'argos_lib::Debouncer']]]
 ];

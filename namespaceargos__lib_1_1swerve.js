@@ -1,8 +1,10 @@
 var namespaceargos__lib_1_1swerve =
 [
     [ "NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage" ],
-    [ "SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", "structargos__lib_1_1swerve_1_1_swerve_module_positions" ],
     [ "SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface" ],
+    [ "SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", "structargos__lib_1_1swerve_1_1_swerve_module_positions" ],
+    [ "TranslationSpeeds", "structargos__lib_1_1swerve_1_1_translation_speeds.html", "structargos__lib_1_1swerve_1_1_translation_speeds" ],
+    [ "CircularInterpolate", "namespaceargos__lib_1_1swerve.html#a9c603b206ac928b4d08d9fbaa89f9f63", null ],
     [ "ConstrainAngle", "namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6", null ],
     [ "ConstrainAngle", "namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653", null ],
     [ "InvertedAngle", "namespaceargos__lib_1_1swerve.html#a8c9c60303a1e04dbf343b2103a6e4d30", null ],

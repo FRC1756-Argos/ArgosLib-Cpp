@@ -30,7 +30,8 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -48,6 +49,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -56,8 +58,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"structargos__lib_1_1swerve_1_1_swerve_module_positions.html#a4712a8b0b6eabababbf106a80cd579cc"
+"animation_8cpp.html",
+"classargos__lib_1_1_xbox_controller.html#a745886a45f32be213304338d58f69e92",
+"network__tables__homing__storage_8cpp.html",
+"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

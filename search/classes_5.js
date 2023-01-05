@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['updatestatus_270',['UpdateStatus',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html',1,'argos_lib::XboxController']]]
+  ['interpmappoint_0',['InterpMapPoint',['../structargos__lib_1_1_interp_map_point.html',1,'argos_lib']]],
+  ['interpolationmap_1',['InterpolationMap',['../classargos__lib_1_1_interpolation_map.html',1,'argos_lib']]]
 ];

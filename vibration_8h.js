@@ -1,7 +1,8 @@
 var vibration_8h =
 [
-    [ "VibrationStatus", "structargos__lib_1_1_vibration_status.html", "structargos__lib_1_1_vibration_status" ],
+    [ "argos_lib::VibrationStatus", "structargos__lib_1_1_vibration_status.html", "structargos__lib_1_1_vibration_status" ],
     [ "VibrationModel", "vibration_8h.html#ae908a90a520f4c3aa7ed84f62295418c", null ],
+    [ "TemporaryVibrationPattern", "vibration_8h.html#adfd26102f3bb55fd38f1f624158cc235", null ],
     [ "VibrationAlternatePulse", "vibration_8h.html#ad60f0b7c80267a6a8e576ef289de00e8", null ],
     [ "VibrationAlternateWave", "vibration_8h.html#a489dff46429e8ae8064c6b37a744e2f5", null ],
     [ "VibrationConstant", "vibration_8h.html#aadda81a361b1738ff80d513f9a74c32e", null ],

@@ -8,5 +8,6 @@ var namespaceargos__lib_1_1cancoder__config =
     [ "has_magOffset< T, decltype((void) T::magOffset, void())>", "structargos__lib_1_1cancoder__config_1_1has__mag_offset_3_01_t_00_01decltype_07_07void_08_01_t_1de2a467e5a7d6bbfd81fd01645e37d7d.html", null ],
     [ "has_range", "structargos__lib_1_1cancoder__config_1_1has__range.html", null ],
     [ "has_range< T, decltype((void) T::range, void())>", "structargos__lib_1_1cancoder__config_1_1has__range_3_01_t_00_01decltype_07_07void_08_01_t_1_1range_00_01void_07_08_08_4.html", null ],
-    [ "CanCoderConfig", "namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63", null ]
+    [ "CanCoderConfig", "namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63", null ],
+    [ "CanCoderConfig", "namespaceargos__lib_1_1cancoder__config.html#ad4761448a82be9f301cea9cb92f8631b", null ]
 ];

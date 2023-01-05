@@ -1,14 +1,9 @@
 var searchData=
 [
-  ['vibrateall_185',['VibrateAll',['../classargos__lib_1_1_swappable_controllers_subsystem.html#ac6723631d6da5d864ed219ec2b75513d',1,'argos_lib::SwappableControllersSubsystem']]],
-  ['vibration_2ecpp_186',['vibration.cpp',['../vibration_8cpp.html',1,'']]],
-  ['vibration_2eh_187',['vibration.h',['../vibration_8h.html',1,'']]],
-  ['vibrationalternatepulse_188',['VibrationAlternatePulse',['../namespaceargos__lib.html#ad60f0b7c80267a6a8e576ef289de00e8',1,'argos_lib']]],
-  ['vibrationalternatewave_189',['VibrationAlternateWave',['../namespaceargos__lib.html#a489dff46429e8ae8064c6b37a744e2f5',1,'argos_lib']]],
-  ['vibrationconstant_190',['VibrationConstant',['../namespaceargos__lib.html#aadda81a361b1738ff80d513f9a74c32e',1,'argos_lib::VibrationConstant(double intensity)'],['../namespaceargos__lib.html#af48079b006bba7c41aae85cce88ff3e1',1,'argos_lib::VibrationConstant(double intensityLeft, double intensityRight)']]],
-  ['vibrationmodel_191',['VibrationModel',['../namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c',1,'argos_lib']]],
-  ['vibrationoff_192',['VibrationOff',['../namespaceargos__lib.html#a9bdc8d0bc40d923285b6350108692133',1,'argos_lib']]],
-  ['vibrationstatus_193',['VibrationStatus',['../structargos__lib_1_1_vibration_status.html',1,'argos_lib']]],
-  ['vibrationsyncpulse_194',['VibrationSyncPulse',['../namespaceargos__lib.html#af417e6c76c86d4cebf77851dca11c23d',1,'argos_lib']]],
-  ['vibrationsyncwave_195',['VibrationSyncWave',['../namespaceargos__lib.html#ae562daa4c83e3bdb85b2a17aadd00855',1,'argos_lib']]]
+  ['up_0',['up',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a8ca185325796ee021b569cdc760d9cf4',1,'argos_lib::XboxController::DPadButtons']]],
+  ['update_1',['update',['../structargos__lib_1_1led_1_1_animation.html#a427c6a131532cabbd7ec28e7bc877c32',1,'argos_lib::led::Animation']]],
+  ['updatebutton_2',['UpdateButton',['../classargos__lib_1_1_xbox_controller.html#a9646359d9a7bd868f0973d53640c24dc',1,'argos_lib::XboxController']]],
+  ['updateclosedloopmonitoringthread_3',['UpdateClosedLoopMonitoringThread',['../classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#ac6dab53d0071dc6c5507cc643ea51e24',1,'argos_lib::NTMotorPIDTuner']]],
+  ['updatestatus_4',['UpdateStatus',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html',1,'argos_lib::XboxController']]],
+  ['updatevibration_5',['UpdateVibration',['../classargos__lib_1_1_xbox_controller.html#a37e4539aa4e0cc854c05ffb9a24ba6db',1,'argos_lib::XboxController::UpdateVibration()'],['../classargos__lib_1_1_swappable_controllers_subsystem.html#a838b20adf26856f0c543172253084e4f',1,'argos_lib::SwappableControllersSubsystem::UpdateVibration()']]]
 ];

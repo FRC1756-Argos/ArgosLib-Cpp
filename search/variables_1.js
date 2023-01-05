@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cleartime_345',['clearTime',['../structargos__lib_1_1_debounce_settings.html#a244f36e15164715e4f0c785d7f788689',1,'argos_lib::DebounceSettings']]]
+  ['busname_0',['busName',['../structargos__lib_1_1_c_a_n_address.html#a6787fc599d47aa792bd67951eb0fd1d4',1,'argos_lib::CANAddress']]]
 ];

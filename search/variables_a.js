@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['up_378',['up',['../structargos__lib_1_1_xbox_controller_1_1_d_pad_buttons.html#a8ca185325796ee021b569cdc760d9cf4',1,'argos_lib::XboxController::DPadButtons']]]
+  ['position_0',['position',['../structargos__lib_1_1_closed_loop_sensor_conversions.html#ab9a10d9abb462e2ffd44ecb8574a8293',1,'argos_lib::ClosedLoopSensorConversions']]],
+  ['pressed_1',['pressed',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a8b0dfa6c97d33cc308c1be26d6b3e180',1,'argos_lib::XboxController::UpdateStatus']]]
 ];

@@ -1,7 +1,7 @@
 var interpolation_8h =
 [
-    [ "InterpMapPoint", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
-    [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
-    [ "operator<", "interpolation_8h.html#a8ed2d3f18efcdd9aa1e5b19535e380aa", null ],
-    [ "operator<", "interpolation_8h.html#a6ce4f96310a8fed0c43bba8c5cdb31f1", null ]
+    [ "argos_lib::InterpMapPoint< T, V >", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
+    [ "argos_lib::InterpolationMap< T, size, V >", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
+    [ "operator<", "interpolation_8h.html#ad64b1c60180c848877a6b120baf052e7", null ],
+    [ "operator<", "interpolation_8h.html#a2503d5262181b3a6ba47396af30ab300", null ]
 ];
