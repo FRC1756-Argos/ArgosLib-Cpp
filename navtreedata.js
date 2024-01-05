@@ -30,8 +30,10 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -39,7 +41,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
@@ -58,10 +60,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"animation_8cpp.html",
-"classargos__lib_1_1_xbox_controller.html#a745886a45f32be213304338d58f69e92",
-"network__tables__homing__storage_8cpp.html",
-"structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state.html"
+"angle__utils_8cpp.html",
+"classargos__lib_1_1_swappable_controllers_subsystem.html#adfd79a22e4e3087e4167fbc61fbb4f31",
+"dir_297090c629331b6211a5a9bae4ee7118.html",
+"status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6",
+"structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['robotinstance_0',['RobotInstance',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c',1,'argos_lib']]]
+  ['primaryscandirection_0',['PrimaryScanDirection',['../namespaceargos__lib_1_1led.html#a54b3233eaeb43c747bc80e5a84973b83',1,'argos_lib::led']]]
 ];

@@ -1,6 +1,8 @@
 var hierarchy =
 [
     [ "argos_lib::led::Animation", "structargos__lib_1_1led_1_1_animation.html", null ],
+    [ "argos_lib::ArgosColor", "structargos__lib_1_1_argos_color.html", null ],
+    [ "argos_lib::ArgosLogger", "classargos__lib_1_1_argos_logger.html", null ],
     [ "argos_lib::led::Array2D< T >", "classargos__lib_1_1led_1_1_array2_d.html", null ],
     [ "argos_lib::led::Array2D< float >", "classargos__lib_1_1led_1_1_array2_d.html", null ],
     [ "argos_lib::led::Array2D< frc::AddressableLED::LEDData >", "classargos__lib_1_1led_1_1_array2_d.html", null ],
@@ -47,6 +49,9 @@ var hierarchy =
       [ "argos_lib::falcon_config::has_reverseLimit_normalState< T, typename >", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state.html", null ],
       [ "argos_lib::falcon_config::has_reverseLimit_source< T, typename >", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__source.html", null ],
       [ "argos_lib::falcon_config::has_sensorPhase< T, typename >", "structargos__lib_1_1falcon__config_1_1has__sensor_phase.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentLimit< T, typename >", "structargos__lib_1_1falcon__config_1_1has__stator_current_limit.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentThreshold< T, typename >", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentThresholdTime< T, typename >", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_time.html", null ],
       [ "argos_lib::falcon_config::has_statusFrameMotorMode< T, typename >", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html", null ],
       [ "argos_lib::falcon_config::has_supplyCurrentLimit< T, typename >", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html", null ],
       [ "argos_lib::falcon_config::has_supplyCurrentThreshold< T, typename >", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold.html", null ],
@@ -72,8 +77,12 @@ var hierarchy =
       [ "argos_lib::talonsrx_config::has_statusFrameMotorMode< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode.html", null ],
       [ "argos_lib::talonsrx_config::has_voltCompSat< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ]
     ] ],
+    [ "argos_lib::GenericDebouncer< T >", "classargos__lib_1_1_generic_debouncer.html", null ],
     [ "frc::GenericHID", null, [
       [ "argos_lib::XboxController", "classargos__lib_1_1_xbox_controller.html", null ]
+    ] ],
+    [ "argos_lib::HomingStorageInterface< T >", "classargos__lib_1_1_homing_storage_interface.html", [
+      [ "argos_lib::FSHomingStorage< T >", "classargos__lib_1_1_f_s_homing_storage.html", null ]
     ] ],
     [ "argos_lib::HysteresisFilter< T >", "classargos__lib_1_1_hysteresis_filter.html", null ],
     [ "argos_lib::InterpMapPoint< T, V >", "structargos__lib_1_1_interp_map_point.html", null ],
@@ -88,7 +97,8 @@ var hierarchy =
       [ "argos_lib::LEDSubsystem", "classargos__lib_1_1_l_e_d_subsystem.html", null ],
       [ "argos_lib::SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", null ]
     ] ],
-    [ "argos_lib::swerve::SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", [
+    [ "argos_lib::SwerveHomeStorageInterface", "classargos__lib_1_1_swerve_home_storage_interface.html", [
+      [ "argos_lib::SwerveFSHomingStorage", "classargos__lib_1_1_swerve_f_s_homing_storage.html", null ],
       [ "argos_lib::swerve::NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", null ]
     ] ],
     [ "argos_lib::swerve::SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", null ],
@@ -127,6 +137,9 @@ var hierarchy =
       [ "argos_lib::falcon_config::has_reverseLimit_normalState< T, decltype((void) T::reverseLimit_normalState, void())>", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__normal_state_3_01_t_00_01decltype_07_0a382814b0f38b30f034d150cee564e44.html", null ],
       [ "argos_lib::falcon_config::has_reverseLimit_source< T, decltype((void) T::reverseLimit_source, void())>", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__source_3_01_t_00_01decltype_07_07void_44a515af1f068a9815bdd41ed603153d.html", null ],
       [ "argos_lib::falcon_config::has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1falcon__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t_12047e01d755d4a3d7b29862e873d6f84.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentLimit< T, decltype((void) T::statorCurrentLimit, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_limit_3_01_t_00_01decltype_07_07void_0725b44c65551ddaf62c0e4bea0e8192b.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentThreshold< T, decltype((void) T::statorCurrentThreshold, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_3_01_t_00_01decltype_07_07voae76373c28c0a21bcac7cc9f2ac0f40e.html", null ],
+      [ "argos_lib::falcon_config::has_statorCurrentThresholdTime< T, decltype((void) T::statorCurrentThresholdTime, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_time_3_01_t_00_01decltype_0736919d14579bc39ae79aa6121f589551.html", null ],
       [ "argos_lib::falcon_config::has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07voi2f2717a3e49b6fdffa076fad9d7a7425.html", null ],
       [ "argos_lib::falcon_config::has_supplyCurrentLimit< T, decltype((void) T::supplyCurrentLimit, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit_3_01_t_00_01decltype_07_07void_012cda0473719e58ee24f06eba96a52ba.html", null ],
       [ "argos_lib::falcon_config::has_supplyCurrentThreshold< T, decltype((void) T::supplyCurrentThreshold, void())>", "structargos__lib_1_1falcon__config_1_1has__supply_current_threshold_3_01_t_00_01decltype_07_07vo4344fda3f0a20a4d347985ed81819e93.html", null ],

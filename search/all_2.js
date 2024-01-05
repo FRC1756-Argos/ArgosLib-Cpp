@@ -9,12 +9,13 @@ var searchData=
   ['cleartime_6',['clearTime',['../structargos__lib_1_1_debounce_settings.html#a244f36e15164715e4f0c785d7f788689',1,'argos_lib::DebounceSettings']]],
   ['closedloopsensorconversions_7',['ClosedLoopSensorConversions',['../structargos__lib_1_1_closed_loop_sensor_conversions.html',1,'argos_lib']]],
   ['color_8',['color',['../structargos__lib_1_1_l_e_d_state.html#a8e1dd5e60d5a6e2fe7824ebff2ce1ce7',1,'argos_lib::LEDState::color()'],['../structargos__lib_1_1_l_e_d_subsystem_1_1_l_e_d_update_group.html#ada28dea1f136da7e81e04bca74527fd6',1,'argos_lib::LEDSubsystem::LEDUpdateGroup::color()']]],
-  ['colors_9',['colors',['../structargos__lib_1_1led_1_1_sprite.html#a8118d092d262880dc7f3b844fe19fc67',1,'argos_lib::led::Sprite']]],
-  ['competition_10',['Competition',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c',1,'argos_lib']]],
-  ['compile_5ftime_5fmember_5fcheck_2eh_11',['compile_time_member_check.h',['../compile__time__member__check_8h.html',1,'']]],
-  ['config_5ftypes_2eh_12',['config_types.h',['../config__types_8h.html',1,'']]],
-  ['constrainangle_13',['ConstrainAngle',['../namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653',1,'argos_lib::swerve::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6',1,'argos_lib::swerve::ConstrainAngle(double inVal, double minVal, double maxVal)']]],
-  ['count_14',['COUNT',['../classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()'],['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()']]],
-  ['customanimateauxleds_15',['CustomAnimateAuxLEDs',['../classargos__lib_1_1_l_e_d_subsystem.html#a878699f90e7ab3ffb04c553357ff8203',1,'argos_lib::LEDSubsystem']]],
-  ['customanimateintegratedleds_16',['CustomAnimateIntegratedLEDs',['../classargos__lib_1_1_l_e_d_subsystem.html#ab8afc83e62ce13ce6b15b34f8e9374ca',1,'argos_lib::LEDSubsystem']]]
+  ['color_2eh_9',['color.h',['../color_8h.html',1,'']]],
+  ['colors_10',['colors',['../structargos__lib_1_1led_1_1_sprite.html#a8118d092d262880dc7f3b844fe19fc67',1,'argos_lib::led::Sprite']]],
+  ['competition_11',['Competition',['../namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c',1,'argos_lib']]],
+  ['compile_5ftime_5fmember_5fcheck_2eh_12',['compile_time_member_check.h',['../compile__time__member__check_8h.html',1,'']]],
+  ['config_5ftypes_2eh_13',['config_types.h',['../config__types_8h.html',1,'']]],
+  ['constrainangle_14',['ConstrainAngle',['../namespaceargos__lib_1_1angle.html#a47b900c9e45eabfd06cbb75a44d53282',1,'argos_lib::angle::ConstrainAngle(units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)'],['../namespaceargos__lib_1_1angle.html#ab5ea266016f470c8e64637358039c125',1,'argos_lib::angle::ConstrainAngle(double inVal, double minVal, double maxVal)']]],
+  ['count_15',['COUNT',['../classargos__lib_1_1_xbox_controller.html#aff2bf847008c81f1269494f552285a86a4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()'],['../classargos__lib_1_1_xbox_controller.html#a067fb8b43b80533b5ec763b7105f40fca4905ac9d6a22bdfc1ae096094ce6248d',1,'argos_lib::XboxController::COUNT()']]],
+  ['customanimateauxleds_16',['CustomAnimateAuxLEDs',['../classargos__lib_1_1_l_e_d_subsystem.html#a878699f90e7ab3ffb04c553357ff8203',1,'argos_lib::LEDSubsystem']]],
+  ['customanimateintegratedleds_17',['CustomAnimateIntegratedLEDs',['../classargos__lib_1_1_l_e_d_subsystem.html#ab8afc83e62ce13ce6b15b34f8e9374ca',1,'argos_lib::LEDSubsystem']]]
 ];

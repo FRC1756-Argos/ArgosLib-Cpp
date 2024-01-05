@@ -114,9 +114,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_translation_speeds.html">argos_lib::swerve::TranslationSpeeds</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translation speeds as percent max output.  <a href="structargos__lib_1_1swerve_1_1_translation_speeds.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html">argos_lib::swerve::SwerveHomeStorageInterface</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface capable of saving and loading module home positions from persistent storage.  <a href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -127,18 +124,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71">argos_lib::swerve::NearestAngle</a> (units::degree_t desiredAngle, units::degree_t referenceAngle)</td></tr>
-<tr class="memdesc:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds closest angle alias of desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded.  <a href="namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71">More...</a><br /></td></tr>
-<tr class="separator:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a8c9c60303a1e04dbf343b2103a6e4d30">argos_lib::swerve::InvertedAngle</a> (units::degree_t desiredAngle, units::degree_t referenceAngle)</td></tr>
-<tr class="memdesc:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds closest angle alias of a vector 180-degrees offset from desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded.  <a href="namespaceargos__lib_1_1swerve.html#a8c9c60303a1e04dbf343b2103a6e4d30">More...</a><br /></td></tr>
-<tr class="separator:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85dfb625b2ac130a95aecfad9f19b653"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653">argos_lib::swerve::ConstrainAngle</a> (units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)</td></tr>
-<tr class="memdesc:a85dfb625b2ac130a95aecfad9f19b653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize angle to specified range.  <a href="namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653">More...</a><br /></td></tr>
-<tr class="separator:a85dfb625b2ac130a95aecfad9f19b653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd076978912bb2648916d8ec0cad3e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6">argos_lib::swerve::ConstrainAngle</a> (double inVal, double minVal, double maxVal)</td></tr>
-<tr class="memdesc:acfd076978912bb2648916d8ec0cad3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize angle to specified range.  <a href="namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6">More...</a><br /></td></tr>
-<tr class="separator:acfd076978912bb2648916d8ec0cad3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc421e76b48b21874789c52224edf454"><td class="memItemLeft" align="right" valign="top">frc::SwerveModuleState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">argos_lib::swerve::Optimize</a> (frc::SwerveModuleState desiredState, units::degree_t currentModuleAngle, units::degrees_per_second_t currentModuleAngularRate, units::feet_per_second_t currentModuleDriveVel, units::feet_per_second_t maxVelocity)</td></tr>
 <tr class="memdesc:acc421e76b48b21874789c52224edf454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optimize swerve module to minimize rotations and drive direction changes.  <a href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">More...</a><br /></td></tr>
 <tr class="separator:acc421e76b48b21874789c52224edf454"><td class="memSeparator" colspan="2">&#160;</td></tr>

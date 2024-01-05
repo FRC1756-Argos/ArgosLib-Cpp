@@ -1,9 +1,9 @@
 var classargos__lib_1_1_n_t_motor_p_i_d_tuner =
 [
-    [ "NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a23805f735ab5c1a909031d94b861a182", null ],
+    [ "NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a01bbb69e58c617b4a04d515292306566", null ],
     [ "~NTMotorPIDTuner", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#abe7aa15b3b781d8118366b079d1afdcc", null ],
     [ "UpdateClosedLoopMonitoringThread", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#ac6dab53d0071dc6c5507cc643ea51e24", null ],
-    [ "m_pidSlot", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a4ba88fe8cf359dcc19a3b69d17617550", null ],
+    [ "m_pidSlot", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a6c17f19500a67e15a9fddecf311b69fd", null ],
     [ "m_pMotors", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a21fd8b8643c409260cd562e0d29a9bcf", null ],
     [ "m_pntTable", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a91c33a2aef6c5a80564d4df2c7b1e0bf", null ],
     [ "m_sensorConversions", "classargos__lib_1_1_n_t_motor_p_i_d_tuner.html#a0e1d0cb486d6e6039b206b398065bb14", null ],

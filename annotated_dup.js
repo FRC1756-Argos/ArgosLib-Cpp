@@ -70,6 +70,12 @@ var annotated_dup =
         [ "has_reverseLimit_source< T, decltype((void) T::reverseLimit_source, void())>", "structargos__lib_1_1falcon__config_1_1has__reverse_limit__source_3_01_t_00_01decltype_07_07void_44a515af1f068a9815bdd41ed603153d.html", null ],
         [ "has_sensorPhase", "structargos__lib_1_1falcon__config_1_1has__sensor_phase.html", null ],
         [ "has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1falcon__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t_12047e01d755d4a3d7b29862e873d6f84.html", null ],
+        [ "has_statorCurrentLimit", "structargos__lib_1_1falcon__config_1_1has__stator_current_limit.html", null ],
+        [ "has_statorCurrentLimit< T, decltype((void) T::statorCurrentLimit, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_limit_3_01_t_00_01decltype_07_07void_0725b44c65551ddaf62c0e4bea0e8192b.html", null ],
+        [ "has_statorCurrentThreshold", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold.html", null ],
+        [ "has_statorCurrentThreshold< T, decltype((void) T::statorCurrentThreshold, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_3_01_t_00_01decltype_07_07voae76373c28c0a21bcac7cc9f2ac0f40e.html", null ],
+        [ "has_statorCurrentThresholdTime", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_time.html", null ],
+        [ "has_statorCurrentThresholdTime< T, decltype((void) T::statorCurrentThresholdTime, void())>", "structargos__lib_1_1falcon__config_1_1has__stator_current_threshold_time_3_01_t_00_01decltype_0736919d14579bc39ae79aa6121f589551.html", null ],
         [ "has_statusFrameMotorMode", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html", null ],
         [ "has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07voi2f2717a3e49b6fdffa076fad9d7a7425.html", null ],
         [ "has_supplyCurrentLimit", "structargos__lib_1_1falcon__config_1_1has__supply_current_limit.html", null ],
@@ -89,7 +95,6 @@ var annotated_dup =
       ] ],
       [ "swerve", "namespaceargos__lib_1_1swerve.html", [
         [ "NetworkTablesHomingStorage", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html", "classargos__lib_1_1swerve_1_1_network_tables_homing_storage" ],
-        [ "SwerveHomeStorageInterface", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html", "classargos__lib_1_1swerve_1_1_swerve_home_storage_interface" ],
         [ "SwerveModulePositions", "structargos__lib_1_1swerve_1_1_swerve_module_positions.html", "structargos__lib_1_1swerve_1_1_swerve_module_positions" ],
         [ "TranslationSpeeds", "structargos__lib_1_1swerve_1_1_translation_speeds.html", "structargos__lib_1_1swerve_1_1_translation_speeds" ]
       ] ],
@@ -133,11 +138,16 @@ var annotated_dup =
         [ "has_voltCompSat", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
         [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ]
       ] ],
+      [ "ArgosColor", "structargos__lib_1_1_argos_color.html", "structargos__lib_1_1_argos_color" ],
+      [ "ArgosLogger", "classargos__lib_1_1_argos_logger.html", "classargos__lib_1_1_argos_logger" ],
       [ "CANAddress", "structargos__lib_1_1_c_a_n_address.html", "structargos__lib_1_1_c_a_n_address" ],
       [ "ClosedLoopSensorConversions", "structargos__lib_1_1_closed_loop_sensor_conversions.html", "structargos__lib_1_1_closed_loop_sensor_conversions" ],
       [ "Debouncer", "classargos__lib_1_1_debouncer.html", "classargos__lib_1_1_debouncer" ],
       [ "DebounceSettings", "structargos__lib_1_1_debounce_settings.html", "structargos__lib_1_1_debounce_settings" ],
       [ "EdgeDetector", "classargos__lib_1_1_edge_detector.html", "classargos__lib_1_1_edge_detector" ],
+      [ "FSHomingStorage", "classargos__lib_1_1_f_s_homing_storage.html", "classargos__lib_1_1_f_s_homing_storage" ],
+      [ "GenericDebouncer", "classargos__lib_1_1_generic_debouncer.html", "classargos__lib_1_1_generic_debouncer" ],
+      [ "HomingStorageInterface", "classargos__lib_1_1_homing_storage_interface.html", "classargos__lib_1_1_homing_storage_interface" ],
       [ "HysteresisFilter", "classargos__lib_1_1_hysteresis_filter.html", "classargos__lib_1_1_hysteresis_filter" ],
       [ "InterpMapPoint", "structargos__lib_1_1_interp_map_point.html", "structargos__lib_1_1_interp_map_point" ],
       [ "InterpolationMap", "classargos__lib_1_1_interpolation_map.html", "classargos__lib_1_1_interpolation_map" ],
@@ -147,6 +157,8 @@ var annotated_dup =
       [ "NTSubscriber", "classargos__lib_1_1_n_t_subscriber.html", "classargos__lib_1_1_n_t_subscriber" ],
       [ "SwapControllersCommand", "classargos__lib_1_1_swap_controllers_command.html", "classargos__lib_1_1_swap_controllers_command" ],
       [ "SwappableControllersSubsystem", "classargos__lib_1_1_swappable_controllers_subsystem.html", "classargos__lib_1_1_swappable_controllers_subsystem" ],
+      [ "SwerveFSHomingStorage", "classargos__lib_1_1_swerve_f_s_homing_storage.html", "classargos__lib_1_1_swerve_f_s_homing_storage" ],
+      [ "SwerveHomeStorageInterface", "classargos__lib_1_1_swerve_home_storage_interface.html", "classargos__lib_1_1_swerve_home_storage_interface" ],
       [ "VibrationStatus", "structargos__lib_1_1_vibration_status.html", "structargos__lib_1_1_vibration_status" ],
       [ "XboxController", "classargos__lib_1_1_xbox_controller.html", "classargos__lib_1_1_xbox_controller" ]
     ] ]

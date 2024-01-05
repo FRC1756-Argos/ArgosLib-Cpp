@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('panel_8h_source.html',''); initResizab
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classargos__lib_1_1led_1_1_array2_d.html#a3e9270cbbeb37920512457cb2fd2850b">   70</a></span>      <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classargos__lib_1_1led_1_1_array2_d.html#a3e9270cbbeb37920512457cb2fd2850b">Height</a>() const noexcept {</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">try</span> {</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>          <span class="keywordflow">return</span> <a class="code hl_variable" href="classargos__lib_1_1led_1_1_array2_d.html#a4b0c203c5d1d42955563e7585cd84b23">m_cells</a>.at(0).size();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        } <span class="keywordflow">catch</span> (std::out_of_range) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::out_of_range&amp;) {</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="comment">// Handle empty vector even though this shouldn&#39;t ever happen with deleted default constructor</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>

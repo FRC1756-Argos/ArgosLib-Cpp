@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['translationspeeds_0',['TranslationSpeeds',['../structargos__lib_1_1swerve_1_1_translation_speeds.html',1,'argos_lib::swerve']]]
+  ['panelscanparams_0',['PanelScanParams',['../structargos__lib_1_1led_1_1_panel_scan_params.html',1,'argos_lib::led']]]
 ];

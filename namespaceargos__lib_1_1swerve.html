@@ -102,9 +102,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html">NetworkTablesHomingStorage</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves and loads swerve module homes to networkTables.  <a href="classargos__lib_1_1swerve_1_1_network_tables_homing_storage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html">SwerveHomeStorageInterface</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface capable of saving and loading module home positions from persistent storage.  <a href="classargos__lib_1_1swerve_1_1_swerve_home_storage_interface.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html">SwerveModulePositions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of the absolute encoder position of each module at home position.  <a href="structargos__lib_1_1swerve_1_1_swerve_module_positions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,18 +111,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71">NearestAngle</a> (units::degree_t desiredAngle, units::degree_t referenceAngle)</td></tr>
-<tr class="memdesc:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds closest angle alias of desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded.  <a href="namespaceargos__lib_1_1swerve.html#a15014cfdba3bfb6ea3ecec726e8ada71">More...</a><br /></td></tr>
-<tr class="separator:a15014cfdba3bfb6ea3ecec726e8ada71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a8c9c60303a1e04dbf343b2103a6e4d30">InvertedAngle</a> (units::degree_t desiredAngle, units::degree_t referenceAngle)</td></tr>
-<tr class="memdesc:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds closest angle alias of a vector 180-degrees offset from desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded.  <a href="namespaceargos__lib_1_1swerve.html#a8c9c60303a1e04dbf343b2103a6e4d30">More...</a><br /></td></tr>
-<tr class="separator:a8c9c60303a1e04dbf343b2103a6e4d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85dfb625b2ac130a95aecfad9f19b653"><td class="memItemLeft" align="right" valign="top">units::degree_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653">ConstrainAngle</a> (units::degree_t inVal, units::degree_t minVal, units::degree_t maxVal)</td></tr>
-<tr class="memdesc:a85dfb625b2ac130a95aecfad9f19b653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize angle to specified range.  <a href="namespaceargos__lib_1_1swerve.html#a85dfb625b2ac130a95aecfad9f19b653">More...</a><br /></td></tr>
-<tr class="separator:a85dfb625b2ac130a95aecfad9f19b653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd076978912bb2648916d8ec0cad3e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6">ConstrainAngle</a> (double inVal, double minVal, double maxVal)</td></tr>
-<tr class="memdesc:acfd076978912bb2648916d8ec0cad3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize angle to specified range.  <a href="namespaceargos__lib_1_1swerve.html#acfd076978912bb2648916d8ec0cad3e6">More...</a><br /></td></tr>
-<tr class="separator:acfd076978912bb2648916d8ec0cad3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc421e76b48b21874789c52224edf454"><td class="memItemLeft" align="right" valign="top">frc::SwerveModuleState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">Optimize</a> (frc::SwerveModuleState desiredState, units::degree_t currentModuleAngle, units::degrees_per_second_t currentModuleAngularRate, units::feet_per_second_t currentModuleDriveVel, units::feet_per_second_t maxVelocity)</td></tr>
 <tr class="memdesc:acc421e76b48b21874789c52224edf454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optimize swerve module to minimize rotations and drive direction changes.  <a href="namespaceargos__lib_1_1swerve.html#acc421e76b48b21874789c52224edf454">More...</a><br /></td></tr>
 <tr class="separator:acc421e76b48b21874789c52224edf454"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,172 +173,6 @@ template&lt;class T , int size, class V &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Remapped joystick percentages. Angle of vector will match rawSpeeds, but magnitude will scale according to interpMap. This results in circular deadband and other mapping results. </dd></dl>
-
-</div>
-</div>
-<a id="acfd076978912bb2648916d8ec0cad3e6" name="acfd076978912bb2648916d8ec0cad3e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd076978912bb2648916d8ec0cad3e6">&#9670;&#160;</a></span>ConstrainAngle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double argos_lib::swerve::ConstrainAngle </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>inVal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>minVal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>maxVal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Normalize angle to specified range. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inVal</td><td>Angle to constrain (degrees) </td></tr>
-    <tr><td class="paramname">minVal</td><td>Normalization lower bound (degrees) </td></tr>
-    <tr><td class="paramname">maxVal</td><td>Normalization upper bound (degrees) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Normalized value in range [minVal, maxVal] (degrees) </dd></dl>
-
-</div>
-</div>
-<a id="a85dfb625b2ac130a95aecfad9f19b653" name="a85dfb625b2ac130a95aecfad9f19b653"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85dfb625b2ac130a95aecfad9f19b653">&#9670;&#160;</a></span>ConstrainAngle() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">units::degree_t argos_lib::swerve::ConstrainAngle </td>
-          <td>(</td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>inVal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>minVal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>maxVal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Normalize angle to specified range. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inVal</td><td>Angle to constrain </td></tr>
-    <tr><td class="paramname">minVal</td><td>Normalization lower bound </td></tr>
-    <tr><td class="paramname">maxVal</td><td>Normalization upper bound </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Normalized value in range [minVal, maxVal] </dd></dl>
-
-</div>
-</div>
-<a id="a8c9c60303a1e04dbf343b2103a6e4d30" name="a8c9c60303a1e04dbf343b2103a6e4d30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c9c60303a1e04dbf343b2103a6e4d30">&#9670;&#160;</a></span>InvertedAngle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">units::degree_t argos_lib::swerve::InvertedAngle </td>
-          <td>(</td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>desiredAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>referenceAngle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds closest angle alias of a vector 180-degrees offset from desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">desiredAngle</td><td>Angle to find 180-degree offset alias for </td></tr>
-    <tr><td class="paramname">referenceAngle</td><td>Defines desired alias range </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Offset angle alias of desiredAngle in range (referencedAngle - 180_deg, referencedAngle + 180_deg] </dd></dl>
-
-</div>
-</div>
-<a id="a15014cfdba3bfb6ea3ecec726e8ada71" name="a15014cfdba3bfb6ea3ecec726e8ada71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15014cfdba3bfb6ea3ecec726e8ada71">&#9670;&#160;</a></span>NearestAngle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">units::degree_t argos_lib::swerve::NearestAngle </td>
-          <td>(</td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>desiredAngle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">units::degree_t&#160;</td>
-          <td class="paramname"><em>referenceAngle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds closest angle alias of desiredAngle relative to referencedAngle. All inputs are normalized so ranges are unbounded. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">desiredAngle</td><td>Angle to find alias for </td></tr>
-    <tr><td class="paramname">referenceAngle</td><td>Defines desired alias range </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Angle alias of desiredAngle in range (referencedAngle - 180_deg, referencedAngle + 180_deg] </dd></dl>
 
 </div>
 </div>

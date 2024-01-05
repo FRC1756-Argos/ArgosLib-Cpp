@@ -108,15 +108,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e6e648d849493768c514af502d7b916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#a2e6e648d849493768c514af502d7b916">NTSubscriber</a> (const std::string &amp;tableName)</td></tr>
 <tr class="memdesc:a2e6e648d849493768c514af502d7b916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classargos__lib_1_1_n_t_subscriber.html" title="Subscribes to Network Tables entry updates and calls a specified callback to use the new value.">NTSubscriber</a> object.  <a href="classargos__lib_1_1_n_t_subscriber.html#a2e6e648d849493768c514af502d7b916">More...</a><br /></td></tr>
 <tr class="separator:a2e6e648d849493768c514af502d7b916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1958cee3ece85034c73911dd32e193e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#aa1958cee3ece85034c73911dd32e193e">~NTSubscriber</a> ()</td></tr>
+<tr class="separator:aa1958cee3ece85034c73911dd32e193e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05b27ec085d402693283a763c97ec95e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#a05b27ec085d402693283a763c97ec95e">AddMonitor</a> (const std::string &amp;keyName, std::function&lt; void(double)&gt; onUpdateCallback, const double defaultValue=0.0, const bool forceUpdate=true)</td></tr>
 <tr class="memdesc:a05b27ec085d402693283a763c97ec95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a new listener for the specified key and send values to callback on update.  <a href="classargos__lib_1_1_n_t_subscriber.html#a05b27ec085d402693283a763c97ec95e">More...</a><br /></td></tr>
 <tr class="separator:a05b27ec085d402693283a763c97ec95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a09a3a36555c86b0b8a6859fc39116c4c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; nt::NetworkTable &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#a09a3a36555c86b0b8a6859fc39116c4c">m_pntTable</a></td></tr>
-<tr class="memdesc:a09a3a36555c86b0b8a6859fc39116c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table with monitored keys.  <a href="classargos__lib_1_1_n_t_subscriber.html#a09a3a36555c86b0b8a6859fc39116c4c">More...</a><br /></td></tr>
-<tr class="separator:a09a3a36555c86b0b8a6859fc39116c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbafd9799b2639b4f094fadd3451fca7"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#adbafd9799b2639b4f094fadd3451fca7">m_tableName</a></td></tr>
+<tr class="memdesc:adbafd9799b2639b4f094fadd3451fca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table containing keys to monitor.  <a href="classargos__lib_1_1_n_t_subscriber.html#adbafd9799b2639b4f094fadd3451fca7">More...</a><br /></td></tr>
+<tr class="separator:adbafd9799b2639b4f094fadd3451fca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92a3eeaaa24084a5eff3c5c6819ee0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; NT_Entry &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#ab92a3eeaaa24084a5eff3c5c6819ee0b">m_ntEntries</a></td></tr>
+<tr class="memdesc:ab92a3eeaaa24084a5eff3c5c6819ee0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish/subscribe entries.  <a href="classargos__lib_1_1_n_t_subscriber.html#ab92a3eeaaa24084a5eff3c5c6819ee0b">More...</a><br /></td></tr>
+<tr class="separator:ab92a3eeaaa24084a5eff3c5c6819ee0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f9141f9f4bc689b70c943b227d0ef3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; NT_Listener &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classargos__lib_1_1_n_t_subscriber.html#ad3f9141f9f4bc689b70c943b227d0ef3">m_ntListeners</a></td></tr>
+<tr class="memdesc:ad3f9141f9f4bc689b70c943b227d0ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry listeners.  <a href="classargos__lib_1_1_n_t_subscriber.html#ad3f9141f9f4bc689b70c943b227d0ef3">More...</a><br /></td></tr>
+<tr class="separator:ad3f9141f9f4bc689b70c943b227d0ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Subscribes to Network Tables entry updates and calls a specified callback to use the new value. </p>
@@ -152,6 +160,23 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa1958cee3ece85034c73911dd32e193e" name="aa1958cee3ece85034c73911dd32e193e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1958cee3ece85034c73911dd32e193e">&#9670;&#160;</a></span>~NTSubscriber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NTSubscriber::~NTSubscriber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -208,8 +233,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a09a3a36555c86b0b8a6859fc39116c4c" name="a09a3a36555c86b0b8a6859fc39116c4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09a3a36555c86b0b8a6859fc39116c4c">&#9670;&#160;</a></span>m_pntTable</h2>
+<a id="ab92a3eeaaa24084a5eff3c5c6819ee0b" name="ab92a3eeaaa24084a5eff3c5c6819ee0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab92a3eeaaa24084a5eff3c5c6819ee0b">&#9670;&#160;</a></span>m_ntEntries</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,7 +243,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;nt::NetworkTable&gt; argos_lib::NTSubscriber::m_pntTable</td>
+          <td class="memname">std::vector&lt;NT_Entry&gt; argos_lib::NTSubscriber::m_ntEntries</td>
         </tr>
       </table>
   </td>
@@ -228,7 +253,55 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Table with monitored keys. </p>
+<p>Publish/subscribe entries. </p>
+
+</div>
+</div>
+<a id="ad3f9141f9f4bc689b70c943b227d0ef3" name="ad3f9141f9f4bc689b70c943b227d0ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f9141f9f4bc689b70c943b227d0ef3">&#9670;&#160;</a></span>m_ntListeners</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;NT_Listener&gt; argos_lib::NTSubscriber::m_ntListeners</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entry listeners. </p>
+
+</div>
+</div>
+<a id="adbafd9799b2639b4f094fadd3451fca7" name="adbafd9799b2639b4f094fadd3451fca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbafd9799b2639b4f094fadd3451fca7">&#9670;&#160;</a></span>m_tableName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string argos_lib::NTSubscriber::m_tableName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Table containing keys to monitor. </p>
 
 </div>
 </div>

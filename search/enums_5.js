@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motorpresetmode_0',['MotorPresetMode',['../namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6',1,'argos_lib::status_frame_config']]]
+  ['loglevel_0',['LogLevel',['../namespaceargos__lib.html#a6606f307b5553bfdaa7c9e272e43c512',1,'argos_lib']]]
 ];

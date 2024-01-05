@@ -128,24 +128,25 @@ $(document).ready(function(){initNavTree('cancoder__config_8h_source.html',''); 
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        config.magnetOffsetDegrees = T::magOffset;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      }</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      <span class="keywordflow">return</span> 0 != encoder.ConfigAllSettings(config, timeout);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CompetitionConfig, <span class="keyword">typename</span> PracticeConfig&gt;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespaceargos__lib_1_1cancoder__config.html#ad4761448a82be9f301cea9cb92f8631b">   67</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63">CanCoderConfig</a>(CANCoder&amp; encoder, units::millisecond_t configTimeout, <a class="code hl_enumeration" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance) {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keywordflow">switch</span> (instance) {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c">argos_lib::RobotInstance::Competition</a>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          <span class="keywordflow">return</span> CanCoderConfig&lt;CompetitionConfig&gt;(encoder, configTimeout);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>          <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57">argos_lib::RobotInstance::Practice</a>:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>          <span class="keywordflow">return</span> CanCoderConfig&lt;PracticeConfig&gt;(encoder, configTimeout);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  }  <span class="comment">// namespace cancoder_config</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}  <span class="comment">// namespace argos_lib</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      encoder.ConfigFactoryDefault(timeout);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keywordflow">return</span> ErrorCode::OKAY == encoder.ConfigAllSettings(config, timeout);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CompetitionConfig, <span class="keyword">typename</span> PracticeConfig&gt;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespaceargos__lib_1_1cancoder__config.html#ad4761448a82be9f301cea9cb92f8631b">   68</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63">CanCoderConfig</a>(CANCoder&amp; encoder, units::millisecond_t configTimeout, <a class="code hl_enumeration" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51c">argos_lib::RobotInstance</a> instance) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      <span class="keywordflow">switch</span> (instance) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca1bdedea8c6cb664d4dc2f80c4286dd2c">argos_lib::RobotInstance::Competition</a>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>          <span class="keywordflow">return</span> CanCoderConfig&lt;CompetitionConfig&gt;(encoder, configTimeout);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespaceargos__lib.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57">argos_lib::RobotInstance::Practice</a>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="keywordflow">return</span> CanCoderConfig&lt;PracticeConfig&gt;(encoder, configTimeout);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  }  <span class="comment">// namespace cancoder_config</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}  <span class="comment">// namespace argos_lib</span></div>
 <div class="ttc" id="acompile__time__member__check_8h_html"><div class="ttname"><a href="compile__time__member__check_8h.html">compile_time_member_check.h</a></div></div>
 <div class="ttc" id="acompile__time__member__check_8h_html_a1f1b8f32581c639f261367d751c6e0aa"><div class="ttname"><a href="compile__time__member__check_8h.html#a1f1b8f32581c639f261367d751c6e0aa">HAS_MEMBER</a></div><div class="ttdeci">#define HAS_MEMBER(X)</div><div class="ttdoc">Helper function generator to detect if a namespace has a member defined.</div><div class="ttdef"><b>Definition:</b> compile_time_member_check.h:14</div></div>
 <div class="ttc" id="anamespaceargos__lib_1_1cancoder__config_html_a127a5060105e8266790116391eebeb63"><div class="ttname"><a href="namespaceargos__lib_1_1cancoder__config.html#a127a5060105e8266790116391eebeb63">argos_lib::cancoder_config::CanCoderConfig</a></div><div class="ttdeci">bool CanCoderConfig(CANCoder &amp;encoder, units::millisecond_t configTimeout)</div><div class="ttdoc">Configures a CTRE CanCoder with only the fields provided. All other fields are given the factory defa...</div><div class="ttdef"><b>Definition:</b> cancoder_config.h:35</div></div>
