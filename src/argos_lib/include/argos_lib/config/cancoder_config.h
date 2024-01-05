@@ -49,7 +49,8 @@ namespace argos_lib {
         config.magnetOffsetDegrees = T::magOffset;
       }
 
-      return 0 != encoder.ConfigAllSettings(config, timeout);
+      encoder.ConfigFactoryDefault(timeout);
+      return ErrorCode::OKAY == encoder.ConfigAllSettings(config, timeout);
     }
 
     /**

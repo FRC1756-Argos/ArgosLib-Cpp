@@ -4,28 +4,39 @@
 
 #include "argos_lib/general/nt_subscriber.h"
 
+#include <networktables/DoubleTopic.h>
+#include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableInstance.h>
+
+#include "fmt/format.h"
 
 using argos_lib::NTSubscriber;
 
-NTSubscriber::NTSubscriber(const std::string& tableName)
-    : m_pntTable{nt::NetworkTableInstance::GetDefault().GetTable(tableName)} {}
+NTSubscriber::NTSubscriber(const std::string& tableName) : m_tableName{tableName} {}
+
+NTSubscriber::~NTSubscriber() {
+  // Need to release all handles
+  for (auto listenerIt = m_ntListeners.begin(); listenerIt != m_ntListeners.end(); ++listenerIt) {
+    nt::RemoveListener(*listenerIt);
+  }
+  for (auto entryIt = m_ntEntries.begin(); entryIt != m_ntEntries.end(); ++entryIt) {
+    nt::ReleaseEntry(*entryIt);
+  }
+}
 
 void NTSubscriber::AddMonitor(const std::string& keyName,
                               std::function<void(double)> onUpdateCallback,
                               const double defaultValue,
                               const bool forceUpdate) {
+  NT_Topic topic = nt::GetTopic(NT_GetDefaultInstance(), fmt::format("{}/{}", m_tableName, keyName));
+  m_ntEntries.push_back(nt::GetEntry(topic, NT_DOUBLE, "double"));
   if (forceUpdate) {
-    m_pntTable->PutNumber(keyName, defaultValue);
+    nt::SetDouble(m_ntEntries.back(), defaultValue);
   } else {
-    m_pntTable->SetDefaultNumber(keyName, defaultValue);
+    nt::SetDefaultDouble(m_ntEntries.back(), defaultValue);
   }
-  m_pntTable->AddEntryListener(
-      keyName,
-      [onUpdateCallback](nt::NetworkTable* table,
-                         std::string_view key,
-                         nt::NetworkTableEntry entry,
-                         std::shared_ptr<nt::Value> value,
-                         int flags) { onUpdateCallback(value->GetDouble()); },
-      NT_NOTIFY_UPDATE);
+
+  nt::AddListener(m_ntEntries.back(), nt::EventFlags::kValueAll, [onUpdateCallback](const nt::Event& e) {
+    onUpdateCallback(e.GetValueEventData()->value.GetDouble());
+  });
 }

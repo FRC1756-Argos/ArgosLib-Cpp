@@ -70,7 +70,7 @@ namespace argos_lib {
       unsigned Height() const noexcept {
         try {
           return m_cells.at(0).size();
-        } catch (std::out_of_range) {
+        } catch (const std::out_of_range&) {
           // Handle empty vector even though this shouldn't ever happen with deleted default constructor
           return 0;
         }
