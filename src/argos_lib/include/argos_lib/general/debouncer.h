@@ -29,12 +29,26 @@ namespace argos_lib {
     explicit Debouncer(const units::millisecond_t symmetricDebounceTime);
 
     /**
-     * @brief Update debouncer with new input and retreive latest debounced status
+     * @brief Update debouncer with new input and retrieve latest debounced status
      *
      * @param newVal Latest raw value
      * @return Value after applying debounce
      */
     [[nodiscard]] bool operator()(bool newVal);
+
+    /**
+     * @brief Retrieve latest raw status
+     *
+     * @return Latest value without applying debounce
+     */
+    [[nodiscard]] bool GetRawStatus();
+
+    /**
+     * @brief Retrieve latest debounced status
+     *
+     * @return Value after applying debounce
+     */
+    [[nodiscard]] bool GetDebouncedStatus();
 
     /**
      * @brief Resets debouncer to a known status like at construction

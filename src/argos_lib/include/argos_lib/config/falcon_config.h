@@ -9,9 +9,10 @@
 
 #include <iostream>
 
+#include <ctre/phoenix6/TalonFX.hpp>
+
 #include "argos_lib/config/config_types.h"
 #include "compile_time_member_check.h"
-#include "ctre/Phoenix.h"
 #include "status_frame_config.h"
 
 namespace argos_lib {
@@ -27,33 +28,34 @@ namespace argos_lib {
     HAS_MEMBER(nominalOutputReverse)
     HAS_MEMBER(peakOutputForward)
     HAS_MEMBER(peakOutputReverse)
-    HAS_MEMBER(pid0_allowableError)
-    HAS_MEMBER(pid0_iZone)
-    HAS_MEMBER(pid0_kD)
-    HAS_MEMBER(pid0_kF)
-    HAS_MEMBER(pid0_kI)
     HAS_MEMBER(pid0_kP)
-    HAS_MEMBER(pid0_selectedSensor)
-    HAS_MEMBER(pid1_allowableError)
-    HAS_MEMBER(pid1_iZone)
-    HAS_MEMBER(pid1_kD)
-    HAS_MEMBER(pid1_kF)
-    HAS_MEMBER(pid1_kI)
+    HAS_MEMBER(pid0_kI)
+    HAS_MEMBER(pid0_kD)
+    HAS_MEMBER(pid0_kS)
+    HAS_MEMBER(pid0_kV)
+    HAS_MEMBER(pid0_kA)
+    HAS_MEMBER(pid0_kG)
+    HAS_MEMBER(pid0_gravityType)
     HAS_MEMBER(pid1_kP)
-    HAS_MEMBER(remoteFilter0_addr)
-    HAS_MEMBER(remoteFilter0_type)
+    HAS_MEMBER(pid1_kI)
+    HAS_MEMBER(pid1_kD)
+    HAS_MEMBER(pid1_kS)
+    HAS_MEMBER(pid1_kV)
+    HAS_MEMBER(pid1_kA)
+    HAS_MEMBER(pid1_gravityType)
+    HAS_MEMBER(pid1_kG)
     HAS_MEMBER(reverseLimit_deviceID)
     HAS_MEMBER(reverseLimit_normalState)
     HAS_MEMBER(reverseLimit_source)
-    HAS_MEMBER(sensorPhase)
+    HAS_MEMBER(rotorToSensorRatio)
+    HAS_MEMBER(selectedSensor)
+    HAS_MEMBER(selectedSensor_addr)
+    HAS_MEMBER(sensorToMechanismRatio)
+    HAS_MEMBER(statorCurrentLimit)
+    HAS_MEMBER(statusFrameMotorMode)
     HAS_MEMBER(supplyCurrentLimit)
     HAS_MEMBER(supplyCurrentThreshold)
     HAS_MEMBER(supplyCurrentThresholdTime)
-    HAS_MEMBER(statorCurrentLimit)
-    HAS_MEMBER(statorCurrentThreshold)
-    HAS_MEMBER(statorCurrentThresholdTime)
-    HAS_MEMBER(voltCompSat)
-    HAS_MEMBER(statusFrameMotorMode)
 
     /**
      * @brief Configures a CTRE Falcon with only the fields provided.  All other fields
@@ -66,227 +68,218 @@ namespace argos_lib {
      *           - inverted
      *           - neutralDeadband
      *           - neutralMode
-     *           - nominalOutputForward
-     *           - nominalOutputReverse
      *           - peakOutputForward
      *           - peakOutputReverse
-     *           - pid0_allowableError
-     *           - pid0_iZone
-     *           - pid0_kD
-     *           - pid0_kF
-     *           - pid0_kI
      *           - pid0_kP
-     *           - pid0_selectedSensor
-     *           - pid1_allowableError
-     *           - pid1_iZone
-     *           - pid1_kD
-     *           - pid1_kF
-     *           - pid1_kI
+     *           - pid0_kI
+     *           - pid0_kD
+     *           - pid0_kS
+     *           - pid0_kV
+     *           - pid0_kA
+     *           - pid0_kG
+     *           - pid0_gravityType
      *           - pid1_kP
-     *           - remoteFilter0_addr
-     *           - remoteFilter0_type
+     *           - pid1_kI
+     *           - pid1_kD
+     *           - pid1_kS
+     *           - pid1_kV
+     *           - pid1_kA
+     *           - pid1_kG
+     *           - pid1_gravityType
      *           - reverseLimit_deviceID
      *           - reverseLimit_normalState
      *           - reverseLimit_source
-     *           - sensorPhase
+     *           - rotorToSensorRatio
+     *           - selectedSensor
+     *           - selectedSensor_addr
+     *           - sensorToMechanismRatio
+     *           - statorCurrentLimit
+     *           - statusFrameMotorMode
      *           - supplyCurrentLimit
      *           - supplyCurrentThreshold
      *           - supplyCurrentThresholdTime
-     *           - statorCurrentLimit
-     *           - statorCurrentThreshold
-     *           - statorCurrentThresholdTime
-     *           - voltCompSat
-     *           - statusFrameMotorMode
      * @param motorController Falcon object to configure
      * @param configTimeout Time to wait for response from Falcon
      * @return true Configuration succeeded
      * @return false Configuration failed
      */
     template <typename T>
-    bool FalconConfig(TalonFX& motorController, units::millisecond_t configTimeout) {
-      TalonFXConfiguration config;
-      auto timeout = configTimeout.to<int>();
+    bool FalconConfig(ctre::phoenix6::hardware::TalonFX& motorController, units::millisecond_t configTimeout) {
+      ctre::phoenix6::configs::TalonFXConfiguration config;
 
       if constexpr (has_inverted<T>{}) {
-        motorController.SetInverted(T::inverted);
-      }
-      if constexpr (has_sensorPhase<T>{}) {
-        motorController.SetSensorPhase(T::sensorPhase);
+        config.MotorOutput.Inverted = T::inverted;
       }
       if constexpr (has_neutralMode<T>{}) {
-        motorController.SetNeutralMode(T::neutralMode);
+        config.MotorOutput.NeutralMode = T::neutralMode;
       }
-      if constexpr (has_voltCompSat<T>{}) {
-        constexpr units::volt_t voltage = T::voltCompSat;
-        config.voltageCompSaturation = voltage.to<double>();
-        motorController.EnableVoltageCompensation(true);
-      } else {
-        motorController.EnableVoltageCompensation(false);
-      }
-      if constexpr (has_remoteFilter0_addr<T>{} && has_remoteFilter0_type<T>{}) {
-        ctre::phoenix::motorcontrol::can::FilterConfiguration filterConfig;
-        filterConfig.remoteSensorDeviceID = T::remoteFilter0_addr.address;
-        filterConfig.remoteSensorSource = T::remoteFilter0_type;
-        config.remoteFilter0 = filterConfig;
-      }
-      if constexpr (has_nominalOutputForward<T>{}) {
-        config.nominalOutputForward = T::nominalOutputForward;
-      }
-      if constexpr (has_nominalOutputReverse<T>{}) {
-        config.nominalOutputReverse = T::nominalOutputReverse;
+      if constexpr (has_selectedSensor_addr<T>{}) {
+        static_assert(has_selectedSensor<T>{} &&
+                          T::selectedSensor != ctre::phoenix6::signals::FeedbackSensorSourceValue::RotorSensor,
+                      "Remote sensor required when address provided");
+        static_assert(T::selectedSensor_addr.address >= 0, "Remote sensor address must be non-negative");
+        config.Feedback.FeedbackRemoteSensorID = T::selectedSensor_addr.address;
       }
       if constexpr (has_peakOutputForward<T>{}) {
-        config.peakOutputForward = T::peakOutputForward;
+        config.MotorOutput.PeakForwardDutyCycle = T::peakOutputForward;
       }
       if constexpr (has_peakOutputReverse<T>{}) {
-        config.peakOutputReverse = T::peakOutputReverse;
+        config.MotorOutput.PeakReverseDutyCycle = T::peakOutputReverse;
       }
-      if constexpr (has_pid0_selectedSensor<T>{}) {
-        config.primaryPID.selectedFeedbackSensor = T::pid0_selectedSensor;
+      if constexpr (has_selectedSensor<T>{}) {
+        config.Feedback.FeedbackSensorSource = T::selectedSensor;
+        if constexpr (T::selectedSensor == ctre::phoenix6::signals::FeedbackSensorSourceValue::FusedCANcoder) {
+          static_assert(has_sensorToMechanismRatio<T>{}, "Fused CANcoder mode requires sensor to mechanism ratio");
+          static_assert(has_rotorToSensorRatio<T>{}, "Fused CANcoder mode requires rotor to sensor ratio");
+          static_assert(T::sensorToMechanismRatio > 0, "sensorToMechanismRatio must be a positive value");
+          static_assert(T::rotorToSensorRatio > 0, "rotorToSensorRatio must be a positive value");
+          config.Feedback.SensorToMechanismRatio = T::sensorToMechanismRatio;
+          config.Feedback.RotorToSensorRatio = T::rotorToSensorRatio;
+        }
       }
       if constexpr (has_pid0_kP<T>{}) {
-        config.slot0.kP = T::pid0_kP;
+        config.Slot0.kP = T::pid0_kP;
       }
       if constexpr (has_pid0_kI<T>{}) {
-        config.slot0.kI = T::pid0_kI;
+        config.Slot0.kI = T::pid0_kI;
       }
       if constexpr (has_pid0_kD<T>{}) {
-        config.slot0.kD = T::pid0_kD;
+        config.Slot0.kD = T::pid0_kD;
       }
-      if constexpr (has_pid0_kF<T>{}) {
-        config.slot0.kF = T::pid0_kF;
+      if constexpr (has_pid0_kS<T>{}) {
+        config.Slot0.kS = T::pid0_kS;
       }
-      if constexpr (has_pid0_iZone<T>{}) {
-        config.slot0.integralZone = T::pid0_iZone;
+      if constexpr (has_pid0_kV<T>{}) {
+        config.Slot0.kV = T::pid0_kV;
       }
-      if constexpr (has_pid0_allowableError<T>{}) {
-        config.slot0.allowableClosedloopError = T::pid0_allowableError;
+      if constexpr (has_pid0_kA<T>{}) {
+        config.Slot0.kA = T::pid0_kA;
+      }
+      if constexpr (has_pid0_kG<T>{} && has_pid0_gravityType<T>{}) {
+        config.Slot0.kG = T::pid0_kG;
+        config.Slot0.GravityType = T::pid0_gravityType;
       }
       if constexpr (has_pid1_kP<T>{}) {
-        config.slot1.kP = T::pid1_kP;
+        config.Slot1.kP = T::pid1_kP;
       }
       if constexpr (has_pid1_kI<T>{}) {
-        config.slot1.kI = T::pid1_kI;
+        config.Slot1.kI = T::pid1_kI;
       }
       if constexpr (has_pid1_kD<T>{}) {
-        config.slot1.kD = T::pid1_kD;
+        config.Slot1.kD = T::pid1_kD;
       }
-      if constexpr (has_pid1_kF<T>{}) {
-        config.slot1.kF = T::pid1_kF;
+      if constexpr (has_pid1_kS<T>{}) {
+        config.Slot1.kS = T::pid1_kS;
       }
-      if constexpr (has_pid1_iZone<T>{}) {
-        config.slot1.integralZone = T::pid1_iZone;
+      if constexpr (has_pid1_kV<T>{}) {
+        config.Slot1.kV = T::pid1_kV;
       }
-      if constexpr (has_pid1_allowableError<T>{}) {
-        config.slot1.allowableClosedloopError = T::pid1_allowableError;
+      if constexpr (has_pid1_kA<T>{}) {
+        config.Slot1.kA = T::pid1_kA;
+      }
+      if constexpr (has_pid1_kG<T>{} && has_pid1_gravityType<T>{}) {
+        config.Slot1.kG = T::pid1_kG;
+        config.Slot1.GravityType = T::pid1_gravityType;
       }
       if constexpr (has_supplyCurrentLimit<T>{} || has_supplyCurrentThreshold<T>{} ||
                     has_supplyCurrentThresholdTime<T>{}) {
-        config.supplyCurrLimit.enable = true;
+        config.CurrentLimits.SupplyCurrentLimitEnable = true;
         if constexpr (has_supplyCurrentLimit<T>{}) {
           constexpr units::ampere_t currentLimit = T::supplyCurrentLimit;
           static_assert(currentLimit.to<double>() > 0, "Supply current limit must be positive");
-          config.supplyCurrLimit.currentLimit = currentLimit.to<double>();
+          config.CurrentLimits.SupplyCurrentLimit = currentLimit.to<double>();
         }
         if constexpr (has_supplyCurrentThreshold<T>{}) {
           constexpr units::ampere_t currentThreshold = T::supplyCurrentThreshold;
           static_assert(currentThreshold.to<double>() > 0, "Supply current threshold must be positive");
-          config.supplyCurrLimit.triggerThresholdCurrent = currentThreshold.to<double>();
+          config.CurrentLimits.SupplyCurrentThreshold = currentThreshold.to<double>();
         }
         if constexpr (has_supplyCurrentThresholdTime<T>{}) {
           constexpr units::second_t currentThresholdTime = T::supplyCurrentThresholdTime;
           static_assert(currentThresholdTime.to<double>() >= 0, "Supply current threshold time must be non-negative");
-          config.supplyCurrLimit.triggerThresholdTime = currentThresholdTime.to<double>();
+          static_assert(currentThresholdTime.to<double>() <= 1.275, "Current duration must be less than 1.275");
+          config.CurrentLimits.SupplyTimeThreshold = currentThresholdTime.to<double>();
         }
       }
-      if constexpr (has_statorCurrentLimit<T>{} || has_statorCurrentThreshold<T>{} ||
-                    has_statorCurrentThresholdTime<T>{}) {
-        config.statorCurrLimit.enable = true;
-        if constexpr (has_statorCurrentLimit<T>{}) {
-          constexpr units::ampere_t currentLimit = T::statorCurrentLimit;
-          static_assert(currentLimit.to<double>() > 0, "Stator current limit must be positive");
-          config.statorCurrLimit.currentLimit = currentLimit.to<double>();
-        }
-        if constexpr (has_statorCurrentThreshold<T>{}) {
-          constexpr units::ampere_t currentThreshold = T::statorCurrentThreshold;
-          static_assert(currentThreshold.to<double>() > 0, "Stator current threshold must be positive");
-          config.statorCurrLimit.triggerThresholdCurrent = currentThreshold.to<double>();
-        }
-        if constexpr (has_statorCurrentThresholdTime<T>{}) {
-          constexpr units::second_t currentThresholdTime = T::statorCurrentThresholdTime;
-          static_assert(currentThresholdTime.to<double>() >= 0, "Stator current threshold time must be non-negative");
-          config.statorCurrLimit.triggerThresholdTime = currentThresholdTime.to<double>();
-        }
+      if constexpr (has_statorCurrentLimit<T>{}) {
+        config.CurrentLimits.StatorCurrentLimitEnable = true;
+        constexpr units::ampere_t currentLimit = T::statorCurrentLimit;
+        static_assert(currentLimit.to<double>() > 0, "Stator current limit must be positive");
+        config.CurrentLimits.StatorCurrentLimit = currentLimit.to<double>();
       }
       if constexpr (has_forwardLimit_source<T>{} || has_forwardLimit_deviceID<T>{} ||
                     has_forwardLimit_normalState<T>{}) {
         if constexpr (has_forwardLimit_source<T>{}) {
-          constexpr ctre::phoenix::motorcontrol::LimitSwitchSource source = T::forwardLimit_source;
-          if constexpr (source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated &&
-                        source != ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector) {
+          constexpr ctre::phoenix6::signals::ForwardLimitSourceValue source = T::forwardLimit_source;
+          if constexpr (source != ctre::phoenix6::signals::ForwardLimitSourceValue::Disabled &&
+                        source != ctre::phoenix6::signals::ForwardLimitSourceValue::LimitSwitchPin) {
             static_assert(has_forwardLimit_deviceID<T>{}, "Forward limit switch requires remote source device ID");
           }
-          if constexpr (source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated) {
-            static_assert(has_forwardLimit_normalState<T>{} &&
-                              T::forwardLimit_normalState != ctre::phoenix::motorcontrol::LimitSwitchNormal_Disabled,
+          if constexpr (source != ctre::phoenix6::signals::ForwardLimitSourceValue::Disabled) {
+            static_assert(has_forwardLimit_normalState<T>{},
                           "Forward limit switch configuration requires both source and normal state");
+            config.HardwareLimitSwitch.ForwardLimitEnable = true;
           }
-          config.forwardLimitSwitchSource = T::forwardLimit_source;
+          config.HardwareLimitSwitch.ForwardLimitSource = T::forwardLimit_source;
         }
         if constexpr (has_forwardLimit_deviceID<T>{}) {
           static_assert(has_forwardLimit_source<T>{} &&
-                            T::forwardLimit_source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated &&
-                            T::forwardLimit_source != ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector,
+                            T::forwardLimit_source != ctre::phoenix6::signals::ForwardLimitSourceValue::Disabled &&
+                            T::forwardLimit_source != ctre::phoenix6::signals::ForwardLimitSourceValue::LimitSwitchPin,
                         "Forward limit switch device ID has no effect when limit source is not remote");
-          config.forwardLimitSwitchDeviceID = T::forwardLimit_deviceID;
+          config.HardwareLimitSwitch.ForwardLimitRemoteSensorID = T::forwardLimit_deviceID;
         }
         if constexpr (has_forwardLimit_normalState<T>{}) {
-          if constexpr (T::forwardLimit_normalState != ctre::phoenix::motorcontrol::LimitSwitchNormal_Disabled) {
+          if constexpr (T::forwardLimit_normalState != ctre::phoenix6::signals::ForwardLimitSourceValue::Disabled) {
             static_assert(has_forwardLimit_source<T>{}, "Forward limit switch source required");
           }
-          config.forwardLimitSwitchNormal = T::forwardLimit_normalState;
+          config.HardwareLimitSwitch.ForwardLimitType = T::forwardLimit_normalState;
         }
+      } else {
+        config.HardwareLimitSwitch.ForwardLimitEnable = false;
       }
       if constexpr (has_reverseLimit_source<T>{} || has_reverseLimit_deviceID<T>{} ||
                     has_reverseLimit_normalState<T>{}) {
         if constexpr (has_reverseLimit_source<T>{}) {
-          constexpr ctre::phoenix::motorcontrol::LimitSwitchSource source = T::reverseLimit_source;
-          if constexpr (source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated &&
-                        source != ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector) {
+          constexpr ctre::phoenix6::signals::ReverseLimitSourceValue source = T::reverseLimit_source;
+          if constexpr (source != ctre::phoenix6::signals::ReverseLimitSourceValue::Disabled &&
+                        source != ctre::phoenix6::signals::ReverseLimitSourceValue::LimitSwitchPin) {
             static_assert(has_reverseLimit_deviceID<T>{}, "Reverse limit switch requires remote source device ID");
           }
-          if constexpr (source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated) {
-            static_assert(has_reverseLimit_normalState<T>{} &&
-                              T::reverseLimit_normalState != ctre::phoenix::motorcontrol::LimitSwitchNormal_Disabled,
+          if constexpr (source != ctre::phoenix6::signals::ReverseLimitSourceValue::Disabled) {
+            static_assert(has_reverseLimit_normalState<T>{},
                           "Reverse limit switch configuration requires both source and normal state");
+            config.HardwareLimitSwitch.ReverseLimitEnable = true;
           }
-          config.reverseLimitSwitchSource = T::reverseLimit_source;
+          config.HardwareLimitSwitch.ReverseLimitSource = T::reverseLimit_source;
         }
         if constexpr (has_reverseLimit_deviceID<T>{}) {
           static_assert(has_reverseLimit_source<T>{} &&
-                            T::reverseLimit_source != ctre::phoenix::motorcontrol::LimitSwitchSource_Deactivated &&
-                            T::reverseLimit_source != ctre::phoenix::motorcontrol::LimitSwitchSource_FeedbackConnector,
+                            T::reverseLimit_source != ctre::phoenix6::signals::ReverseLimitSourceValue::Disabled &&
+                            T::reverseLimit_source != ctre::phoenix6::signals::ReverseLimitSourceValue::LimitSwitchPin,
                         "Reverse limit switch device ID has no effect when limit source is not remote");
-          config.reverseLimitSwitchDeviceID = T::reverseLimit_deviceID;
+          config.HardwareLimitSwitch.ReverseLimitRemoteSensorID = T::reverseLimit_deviceID;
         }
         if constexpr (has_reverseLimit_normalState<T>{}) {
-          if constexpr (T::reverseLimit_normalState != ctre::phoenix::motorcontrol::LimitSwitchNormal_Disabled) {
+          if constexpr (T::reverseLimit_normalState != ctre::phoenix6::signals::ReverseLimitSourceValue::Disabled) {
             static_assert(has_reverseLimit_source<T>{}, "Reverse limit switch source required");
           }
-          config.reverseLimitSwitchNormal = T::reverseLimit_normalState;
+          config.HardwareLimitSwitch.ReverseLimitType = T::reverseLimit_normalState;
         }
+      } else {
+        config.HardwareLimitSwitch.ReverseLimitEnable = false;
       }
       if constexpr (has_neutralDeadband<T>{}) {
         static_assert(T::neutralDeadband >= 0.001, "Neutral deadband must be greater than 0.001 (0.1%)");
         static_assert(T::neutralDeadband <= 0.25, "Neutral deadband must be less than 0.25 (25%)");
-        config.neutralDeadband = T::neutralDeadband;
+        config.MotorOutput.DutyCycleNeutralDeadband = T::neutralDeadband;
       }
 
       if constexpr (has_statusFrameMotorMode<T>()) {
         argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
       }
 
-      auto retVal = motorController.ConfigAllSettings(config, timeout);
+      auto retVal = motorController.GetConfigurator().Apply(config, configTimeout);
       if (0 != retVal) {
         std::cout << "Error code (" << motorController.GetDeviceID() << "): " << retVal << '\n';
       }
@@ -306,7 +299,7 @@ namespace argos_lib {
      * @return false Configuration failed
      */
     template <typename CompetitionConfig, typename PracticeConfig>
-    bool FalconConfig(WPI_TalonFX& motorController,
+    bool FalconConfig(ctre::phoenix6::hardware::TalonFX& motorController,
                       units::millisecond_t configTimeout,
                       argos_lib::RobotInstance instance) {
       switch (instance) {

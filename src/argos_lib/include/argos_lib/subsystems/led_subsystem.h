@@ -6,7 +6,7 @@
 
 #include <argos_lib/led/animiation.h>
 #include <argos_lib/led/panel.h>
-#include <ctre/Phoenix.h>
+#include <ctre/phoenix/led/CANdle.h>
 #include <frc/AddressableLED.h>
 #include <frc2/command/SubsystemBase.h>
 

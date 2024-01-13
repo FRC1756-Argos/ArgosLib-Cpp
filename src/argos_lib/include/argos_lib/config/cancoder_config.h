@@ -6,14 +6,15 @@
 
 #include <units/time.h>
 
+#include <ctre/phoenix6/CANcoder.hpp>
+
 #include "compile_time_member_check.h"
-#include "ctre/Phoenix.h"
 
 namespace argos_lib {
   namespace cancoder_config {
+    using CANcoder = ctre::phoenix6::hardware::CANcoder;
 
     HAS_MEMBER(direction)
-    HAS_MEMBER(initMode)
     HAS_MEMBER(magOffset)
     HAS_MEMBER(range)
 
@@ -23,34 +24,29 @@ namespace argos_lib {
      *
      * @tparam T Structure containing any combination of the following members:
      *           - direction
-     *           - initMode
      *           - magOffset
      *           - range
-     * @param encoder CANCoder object to configure
-     * @param configTimeout Time to wait for response from CANCoder
+     * @param encoder CANcoder object to configure
+     * @param configTimeout Time to wait for response from CANcoder
      * @return true Configuration succeeded
      * @return false Configuration failed
      */
     template <typename T>
-    bool CanCoderConfig(CANCoder& encoder, units::millisecond_t configTimeout) {
-      ctre::phoenix::sensors::CANCoderConfiguration config;
-      auto timeout = configTimeout.to<int>();
+    bool CanCoderConfig(CANcoder& encoder, units::millisecond_t configTimeout) {
+      ctre::phoenix6::configs::CANcoderConfiguration config;
+      encoder.GetConfigurator().Refresh(config.MagnetSensor, configTimeout);
 
       if constexpr (has_direction<T>{}) {
-        config.sensorDirection = T::direction;
-      }
-      if constexpr (has_initMode<T>{}) {
-        config.initializationStrategy = T::initMode;
+        config.MagnetSensor.SensorDirection = T::direction;
       }
       if constexpr (has_range<T>{}) {
-        config.absoluteSensorRange = T::range;
+        config.MagnetSensor.AbsoluteSensorRange = T::range;
       }
       if constexpr (has_magOffset<T>{}) {
-        config.magnetOffsetDegrees = T::magOffset;
+        config.MagnetSensor.WithMagnetOffset = T::magOffset;
       }
 
-      encoder.ConfigFactoryDefault(timeout);
-      return ErrorCode::OKAY == encoder.ConfigAllSettings(config, timeout);
+      return ctre::phoenix::StatusCode::OK == encoder.GetConfigurator().Apply(config, configTimeout);
     }
 
     /**
@@ -58,14 +54,14 @@ namespace argos_lib {
      *
      * @tparam CompetitionConfig Configurations to use in competition robot instance
      * @tparam PracticeConfig Configurations to use in practice robot instance
-     * @param encoder CANCoder object to configure
-     * @param configTimeout Time to wait for response from CANCoder
+     * @param encoder CANcoder object to configure
+     * @param configTimeout Time to wait for response from CANcoder
      * @param instance Robot instance to use
      * @return true Configuration succeeded
      * @return false Configuration failed
      */
     template <typename CompetitionConfig, typename PracticeConfig>
-    bool CanCoderConfig(CANCoder& encoder, units::millisecond_t configTimeout, argos_lib::RobotInstance instance) {
+    bool CanCoderConfig(CANcoder& encoder, units::millisecond_t configTimeout, argos_lib::RobotInstance instance) {
       switch (instance) {
         case argos_lib::RobotInstance::Competition:
           return CanCoderConfig<CompetitionConfig>(encoder, configTimeout);

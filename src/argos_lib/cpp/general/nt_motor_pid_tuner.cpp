@@ -15,7 +15,7 @@ using argos_lib::ClosedLoopSensorConversions;
 using argos_lib::NTMotorPIDTuner;
 
 NTMotorPIDTuner::NTMotorPIDTuner(const std::string& tableName,
-                                 std::initializer_list<ctre::phoenix::motorcontrol::can::BaseTalon*> motors,
+                                 std::initializer_list<BaseTalon*> motors,
                                  unsigned pidSlot,
                                  ClosedLoopSensorConversions sensorConversions)
     : m_updateSubscriber{tableName}
@@ -26,54 +26,84 @@ NTMotorPIDTuner::NTMotorPIDTuner(const std::string& tableName,
     , m_threadMutex()
     , m_threadStopCv()
     , m_statusUpdateThread{[this]() { UpdateClosedLoopMonitoringThread(); }} {
+  m_activeConfigs.SlotNumber = m_pidSlot;
+  if (!std::empty(motors)) {
+    (*motors.begin())->GetConfigurator().Refresh(m_activeConfigs);
+  }
+
   m_updateSubscriber.AddMonitor(
       "tunes/kP",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->Config_kP(m_pidSlot, newVal, 50);
+          m_activeConfigs.kP = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_P, m_pidSlot));
+      m_activeConfigs.kP);
   m_updateSubscriber.AddMonitor(
       "tunes/kI",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->Config_kI(m_pidSlot, newVal, 50);
+          m_activeConfigs.kI = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_I, m_pidSlot));
+      m_activeConfigs.kI);
   m_updateSubscriber.AddMonitor(
       "tunes/kD",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->Config_kD(m_pidSlot, newVal, 50);
+          m_activeConfigs.kD = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_D, m_pidSlot));
+      m_activeConfigs.kD);
   m_updateSubscriber.AddMonitor(
-      "tunes/kF",
+      "tunes/kV",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->Config_kF(m_pidSlot, newVal, 50);
+          m_activeConfigs.kV = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_F, m_pidSlot));
+      m_activeConfigs.kV);
   m_updateSubscriber.AddMonitor(
-      "tunes/IZone",
+      "tunes/kA",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->Config_IntegralZone(m_pidSlot, newVal, 50);
+          m_activeConfigs.kA = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_IZone, m_pidSlot));
+      m_activeConfigs.kA);
   m_updateSubscriber.AddMonitor(
-      "tunes/allowedError",
+      "tunes/kS",
       [this](double newVal) {
         for (auto motor : m_pMotors) {
-          motor->ConfigAllowableClosedloopError(m_pidSlot, newVal, 50);
+          m_activeConfigs.kS = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
         }
       },
-      m_pMotors.front()->ConfigGetParameter(eProfileParamSlot_AllowableErr, m_pidSlot));
+      m_activeConfigs.kS);
+  m_updateSubscriber.AddMonitor(
+      "tunes/kG",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          m_activeConfigs.kG = newVal;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
+        }
+      },
+      m_activeConfigs.kG);
+  m_updateSubscriber.AddMonitor(
+      "tunes/GArm",
+      [this](double newVal) {
+        for (auto motor : m_pMotors) {
+          m_activeConfigs.GravityType = newVal == 0 ? ctre::phoenix6::signals::GravityTypeValue::Elevator_Static :
+                                                      ctre::phoenix6::signals::GravityTypeValue::Arm_Cosine;
+          motor->GetConfigurator().Apply(m_activeConfigs, 50_ms);
+        }
+      },
+      m_activeConfigs.GravityType == ctre::phoenix6::signals::GravityTypeValue::Arm_Cosine);
 }
 
 NTMotorPIDTuner::~NTMotorPIDTuner() {
@@ -107,21 +137,43 @@ void NTMotorPIDTuner::UpdateClosedLoopMonitoringThread() {
       outputs.clear();
       errors.clear();
       for (auto motor : m_pMotors) {
-        const auto controlMode = motor->GetControlMode();
-        if (controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionMagic ||
-            controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionProfile ||
-            controlMode == ctre::phoenix::motorcontrol::ControlMode::MotionProfileArc ||
-            controlMode == ctre::phoenix::motorcontrol::ControlMode::Position ||
-            controlMode == ctre::phoenix::motorcontrol::ControlMode::Velocity) {
-          setpoints.push_back(motor->GetClosedLoopTarget(m_pidSlot) * m_sensorConversions.setpoint);
-          errors.push_back(motor->GetClosedLoopError(m_pidSlot) * m_sensorConversions.setpoint);
-        } else {
-          setpoints.push_back(NAN);
-          errors.push_back(NAN);
+        const auto controlMode = motor->GetControlMode().GetValue();
+        switch (controlMode.value) {
+          case ctre::phoenix6::signals::ControlModeValue::PositionDutyCycle:
+          case ctre::phoenix6::signals::ControlModeValue::VelocityDutyCycle:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicDutyCycle:
+          case ctre::phoenix6::signals::ControlModeValue::PositionDutyCycleFOC:
+          case ctre::phoenix6::signals::ControlModeValue::VelocityDutyCycleFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicDutyCycleFOC:
+          case ctre::phoenix6::signals::ControlModeValue::PositionVoltage:
+          case ctre::phoenix6::signals::ControlModeValue::VelocityVoltage:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVoltage:
+          case ctre::phoenix6::signals::ControlModeValue::PositionVoltageFOC:
+          case ctre::phoenix6::signals::ControlModeValue::VelocityVoltageFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVoltageFOC:
+          case ctre::phoenix6::signals::ControlModeValue::PositionTorqueCurrentFOC:
+          case ctre::phoenix6::signals::ControlModeValue::VelocityTorqueCurrentFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicTorqueCurrentFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVelocityDutyCycle:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVelocityDutyCycleFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVelocityVoltage:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVelocityVoltageFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicVelocityTorqueCurrentFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicExpoDutyCycle:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicExpoDutyCycleFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicExpoVoltage:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicExpoVoltageFOC:
+          case ctre::phoenix6::signals::ControlModeValue::MotionMagicExpoTorqueCurrentFOC:
+            setpoints.push_back(motor->GetClosedLoopReference().GetValue() * m_sensorConversions.setpoint);
+            errors.push_back(motor->GetClosedLoopError().GetValue() * m_sensorConversions.setpoint);
+            break;
+          default:
+            setpoints.push_back(NAN);
+            errors.push_back(NAN);
         }
-        positions.push_back(motor->GetSelectedSensorPosition(m_pidSlot) * m_sensorConversions.position);
-        velocities.push_back(motor->GetSelectedSensorVelocity(m_pidSlot) * m_sensorConversions.velocity);
-        outputs.push_back(motor->GetMotorOutputPercent());
+        positions.push_back(motor->GetPosition().GetValue().to<double>() * m_sensorConversions.position);
+        velocities.push_back(motor->GetVelocity().GetValue().to<double>() * m_sensorConversions.velocity);
+        outputs.push_back(motor->GetDutyCycle().GetValue().to<double>());
       }
       m_pntTable->PutNumberArray("status/setpoints", setpoints);
       m_pntTable->PutNumberArray("status/positions", positions);

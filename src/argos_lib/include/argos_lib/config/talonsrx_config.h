@@ -4,18 +4,17 @@
 
 #pragma once
 
+#include <ctre/phoenix/motorcontrol/can/TalonSRX.h>
 #include <units/current.h>
 #include <units/time.h>
 #include <units/voltage.h>
 
 #include "argos_lib/config/config_types.h"
 #include "compile_time_member_check.h"
-#include "ctre/Phoenix.h"
 #include "status_frame_config.h"
 
 namespace argos_lib {
   namespace talonsrx_config {
-
     HAS_MEMBER(inverted)
     HAS_MEMBER(neutralMode)
     HAS_MEMBER(pid0_allowableError)
@@ -35,6 +34,10 @@ namespace argos_lib {
     HAS_MEMBER(continuousCurrentLimit)
     HAS_MEMBER(peakOutputForward)
     HAS_MEMBER(peakOutputReverse)
+    HAS_MEMBER(forwardLimitSwitchSource)
+    HAS_MEMBER(reverseLimitSwitchSource)
+    HAS_MEMBER(forwardLimitSwitchNormal)
+    HAS_MEMBER(reverseLimitSwitchNormal)
     /**
      * @brief Configures a CTRE TalonSRX with only the fields provided.  All other fields
      *        are given the factory default values.
@@ -59,14 +62,19 @@ namespace argos_lib {
      *           - continuousCurrentLimit
      *           - peakOutputForward
      *           - peakOutputReverse
+     *           - forwardLimitSwitchSource
+     *           - reverseLimitSwitchSource
+     *           - forwardLimitSwitchNormal
+     *           - reverseLimitSwitchNormal
      * @param motorController TalonSRX object to configure
      * @param configTimeout Time to wait for response from TalonSRX
      * @return true Configuration succeeded
      * @return false Configuration failed
      */
     template <typename T>
-    bool TalonSRXConfig(WPI_TalonSRX& motorController, units::millisecond_t configTimeout) {
-      TalonSRXConfiguration config;
+    bool TalonSRXConfig(ctre::phoenix::motorcontrol::can::TalonSRX& motorController,
+                        units::millisecond_t configTimeout) {
+      ctre::phoenix::motorcontrol::can::TalonSRXConfiguration config;
       auto timeout = configTimeout.to<int>();
 
       if constexpr (has_inverted<T>{}) {
@@ -138,6 +146,22 @@ namespace argos_lib {
         argos_lib::status_frame_config::SetMotorStatusFrameRates(motorController, T::statusFrameMotorMode);
       }
 
+      if constexpr (has_forwardLimitSwitchSource<T>()) {
+        config.forwardLimitSwitchSource = T::forwardLimitSwitchSource;
+      }
+
+      if constexpr (has_reverseLimitSwitchSource<T>()) {
+        config.reverseLimitSwitchSource = T::reverseLimitSwitchSource;
+      }
+
+      if constexpr (has_forwardLimitSwitchNormal<T>()) {
+        config.forwardLimitSwitchNormal = T::forwardLimitSwitchNormal;
+      }
+
+      if constexpr (has_reverseLimitSwitchNormal<T>()) {
+        config.reverseLimitSwitchNormal = T::reverseLimitSwitchNormal;
+      }
+
       // enable current limiting if any current limiting option is set, disable if none are
       if (has_continuousCurrentLimit<T>() || has_peakCurrentLimit<T>() || has_peakCurrentDuration<T>()) {
         motorController.EnableCurrentLimit(true);
@@ -165,7 +189,7 @@ namespace argos_lib {
      * @return false Configuration failed
      */
     template <typename CompetitionConfig, typename PracticeConfig>
-    bool TalonSRXConfig(WPI_TalonSRX& motorController,
+    bool TalonSRXConfig(ctre::phoenix::motorcontrol::can::TalonSRX& motorController,
                         units::millisecond_t configTimeout,
                         argos_lib::RobotInstance instance) {
       switch (instance) {
