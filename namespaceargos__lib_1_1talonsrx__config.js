@@ -2,6 +2,10 @@ var namespaceargos__lib_1_1talonsrx__config =
 [
     [ "has_continuousCurrentLimit", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit.html", null ],
     [ "has_continuousCurrentLimit< T, decltype((void) T::continuousCurrentLimit, void())>", "structargos__lib_1_1talonsrx__config_1_1has__continuous_current_limit_3_01_t_00_01decltype_07_07e9620060a5cb4766114183f43e7a3c15.html", null ],
+    [ "has_forwardLimitSwitchNormal", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_normal.html", null ],
+    [ "has_forwardLimitSwitchNormal< T, decltype((void) T::forwardLimitSwitchNormal, void())>", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_normal_3_01_t_00_01decltype_07c002224cd862ad1baf2e3ae426710ccc.html", null ],
+    [ "has_forwardLimitSwitchSource", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_source.html", null ],
+    [ "has_forwardLimitSwitchSource< T, decltype((void) T::forwardLimitSwitchSource, void())>", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_source_3_01_t_00_01decltype_0774c486286bcb4d22c579262d641d9193.html", null ],
     [ "has_inverted", "structargos__lib_1_1talonsrx__config_1_1has__inverted.html", null ],
     [ "has_inverted< T, decltype((void) T::inverted, void())>", "structargos__lib_1_1talonsrx__config_1_1has__inverted_3_01_t_00_01decltype_07_07void_08_01_t_1_1inverted_00_01void_07_08_08_4.html", null ],
     [ "has_neutralMode", "structargos__lib_1_1talonsrx__config_1_1has__neutral_mode.html", null ],
@@ -32,12 +36,16 @@ var namespaceargos__lib_1_1talonsrx__config =
     [ "has_remoteFilter0_addr< T, decltype((void) T::remoteFilter0_addr, void())>", "structargos__lib_1_1talonsrx__config_1_1has__remote_filter0__addr_3_01_t_00_01decltype_07_07void7db44708bee280e33b8eebdcc1e2d0a9.html", null ],
     [ "has_remoteFilter0_type", "structargos__lib_1_1talonsrx__config_1_1has__remote_filter0__type.html", null ],
     [ "has_remoteFilter0_type< T, decltype((void) T::remoteFilter0_type, void())>", "structargos__lib_1_1talonsrx__config_1_1has__remote_filter0__type_3_01_t_00_01decltype_07_07void460837f07a001187eab62e537910f372.html", null ],
+    [ "has_reverseLimitSwitchNormal", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_normal.html", null ],
+    [ "has_reverseLimitSwitchNormal< T, decltype((void) T::reverseLimitSwitchNormal, void())>", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_normal_3_01_t_00_01decltype_078acbc695f39cf5401db2a28570ba2d19.html", null ],
+    [ "has_reverseLimitSwitchSource", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_source.html", null ],
+    [ "has_reverseLimitSwitchSource< T, decltype((void) T::reverseLimitSwitchSource, void())>", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_source_3_01_t_00_01decltype_07c0d43d8da92ece58defcd8f6d348606e.html", null ],
     [ "has_sensorPhase", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase.html", null ],
     [ "has_sensorPhase< T, decltype((void) T::sensorPhase, void())>", "structargos__lib_1_1talonsrx__config_1_1has__sensor_phase_3_01_t_00_01decltype_07_07void_08_01_t4c158a1c96fd2bf7c6dfcb735c6e0d25.html", null ],
     [ "has_statusFrameMotorMode", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode.html", null ],
     [ "has_statusFrameMotorMode< T, decltype((void) T::statusFrameMotorMode, void())>", "structargos__lib_1_1talonsrx__config_1_1has__status_frame_motor_mode_3_01_t_00_01decltype_07_07v17e9f7765ec4fa83077c39d6a7c9002a.html", null ],
     [ "has_voltCompSat", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat.html", null ],
     [ "has_voltCompSat< T, decltype((void) T::voltCompSat, void())>", "structargos__lib_1_1talonsrx__config_1_1has__volt_comp_sat_3_01_t_00_01decltype_07_07void_08_01_cc69726398d3e38e7dec19acb5bda9dc.html", null ],
-    [ "TalonSRXConfig", "namespaceargos__lib_1_1talonsrx__config.html#a74630ad5eec9e25a58e71810fc317b4d", null ],
-    [ "TalonSRXConfig", "namespaceargos__lib_1_1talonsrx__config.html#a998aa6c443ce3cd76042c08e49620ff5", null ]
+    [ "TalonSRXConfig", "namespaceargos__lib_1_1talonsrx__config.html#a8c8fd9b28a61b9d954c242cd6529f624", null ],
+    [ "TalonSRXConfig", "namespaceargos__lib_1_1talonsrx__config.html#a7a7e9ff5622909e0f6b1a2a6b0b8193c", null ]
 ];

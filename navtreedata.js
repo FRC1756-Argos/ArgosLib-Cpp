@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "ArgosLib-Cpp", "index.html", [
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -44,6 +45,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
@@ -52,6 +54,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -61,10 +64,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "angle__utils_8cpp.html",
-"classargos__lib_1_1_swappable_controllers_subsystem.html#adfd79a22e4e3087e4167fbc61fbb4f31",
-"dir_297090c629331b6211a5a9bae4ee7118.html",
-"status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6a55c15f15e91a212907cd98d7939a8db6",
-"structargos__lib_1_1falcon__config_1_1has__status_frame_motor_mode.html"
+"classargos__lib_1_1_swappable_controllers_subsystem.html#a838b20adf26856f0c543172253084e4f",
+"config__types_8h.html#a4231c977f4047dcc9edf48b1bd43f51ca8c004d7e3b8a5a850ab2459c3afc2f57",
+"nt__subscriber_8h.html",
+"structargos__lib_1_1falcon__config_1_1has__pid1__k_s_3_01_t_00_01decltype_07_07void_08_01_t_1_1pid1__k_s_00_01void_07_08_08_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

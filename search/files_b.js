@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['robot_5finstance_2ecpp_0',['robot_instance.cpp',['../robot__instance_8cpp.html',1,'']]]
+  ['panel_2ecpp_0',['panel.cpp',['../panel_8cpp.html',1,'']]],
+  ['panel_2eh_1',['panel.h',['../panel_8h.html',1,'']]]
 ];

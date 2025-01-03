@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['debouncer_0',['Debouncer',['../classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4',1,'argos_lib::Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue=false)'],['../classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4',1,'argos_lib::Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)']]],
+  ['debouncer_0',['debouncer',['../classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4',1,'argos_lib::Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue=false)'],['../classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4',1,'argos_lib::Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)']]],
   ['detectfalling_1',['DetectFalling',['../classargos__lib_1_1_edge_detector.html#ab21eee9433c65ae80560372ab487f485',1,'argos_lib::EdgeDetector']]],
   ['detectrising_2',['DetectRising',['../classargos__lib_1_1_edge_detector.html#a47a3ee6ec09c9b707f63b229105aac3e',1,'argos_lib::EdgeDetector']]],
   ['drawcircle_3',['DrawCircle',['../namespaceargos__lib_1_1led_1_1animation.html#a3945140d49f7ade8fae8ad010c9718d2',1,'argos_lib::led::animation']]],

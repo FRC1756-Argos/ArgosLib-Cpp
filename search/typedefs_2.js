@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['panel_0',['Panel',['../namespaceargos__lib_1_1led.html#a8b604752589156ca3ab478a1c3480726',1,'argos_lib::led']]]
+  ['cancoder_0',['CANcoder',['../namespaceargos__lib_1_1cancoder__config.html#ab6d1fc9e9ed2c0b695c32d9b496b5e5d',1,'argos_lib::cancoder_config']]]
 ];

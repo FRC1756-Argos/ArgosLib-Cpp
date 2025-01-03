@@ -3,7 +3,7 @@ var searchData=
   ['debounce_5fsettings_2eh_0',['debounce_settings.h',['../debounce__settings_8h.html',1,'']]],
   ['debounceactive_1',['debounceActive',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#a6309274d7ea7260c5525dfc00ef3c4ec',1,'argos_lib::XboxController::UpdateStatus']]],
   ['debouncepress_2',['debouncePress',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ab2ccf7dddb335a48096822e9425e8d44',1,'argos_lib::XboxController::UpdateStatus']]],
-  ['debouncer_3',['Debouncer',['../classargos__lib_1_1_debouncer.html',1,'argos_lib::Debouncer'],['../classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4',1,'argos_lib::Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue=false)'],['../classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4',1,'argos_lib::Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)']]],
+  ['debouncer_3',['debouncer',['../classargos__lib_1_1_debouncer.html',1,'argos_lib::Debouncer'],['../classargos__lib_1_1_debouncer.html#ad4747e062c711e8024fe0b477da7c1c4',1,'argos_lib::Debouncer::Debouncer(const argos_lib::DebounceSettings debounceSettings, bool initialValue=false)'],['../classargos__lib_1_1_debouncer.html#a58a7ddbe4d21d9bf71d3d0b4fabe58e4',1,'argos_lib::Debouncer::Debouncer(const units::millisecond_t symmetricDebounceTime)']]],
   ['debouncer_2ecpp_4',['debouncer.cpp',['../debouncer_8cpp.html',1,'']]],
   ['debouncer_2eh_5',['debouncer.h',['../debouncer_8h.html',1,'']]],
   ['debouncerelease_6',['debounceRelease',['../structargos__lib_1_1_xbox_controller_1_1_update_status.html#ac501c6389960221bfa08cf7615155eb3',1,'argos_lib::XboxController::UpdateStatus']]],

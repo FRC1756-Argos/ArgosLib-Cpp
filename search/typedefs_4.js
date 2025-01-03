@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vibrationmodel_0',['VibrationModel',['../namespaceargos__lib.html#ae908a90a520f4c3aa7ed84f62295418c',1,'argos_lib']]]
+  ['panel_0',['Panel',['../namespaceargos__lib_1_1led.html#a8b604752589156ca3ab478a1c3480726',1,'argos_lib::led']]]
 ];

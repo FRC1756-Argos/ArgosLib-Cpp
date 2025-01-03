@@ -38,6 +38,14 @@ var talonsrx__config_8h =
     [ "argos_lib::talonsrx_config::has_peakOutputForward< T, decltype((void) T::peakOutputForward, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_forward_3_01_t_00_01decltype_07_07void_ce1393e4ba3aff645158e2468cf2e124.html", null ],
     [ "argos_lib::talonsrx_config::has_peakOutputReverse< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_reverse.html", null ],
     [ "argos_lib::talonsrx_config::has_peakOutputReverse< T, decltype((void) T::peakOutputReverse, void())>", "structargos__lib_1_1talonsrx__config_1_1has__peak_output_reverse_3_01_t_00_01decltype_07_07void_073517f0314ac977e5b02011a3d9b917.html", null ],
-    [ "TalonSRXConfig", "talonsrx__config_8h.html#a74630ad5eec9e25a58e71810fc317b4d", null ],
-    [ "TalonSRXConfig", "talonsrx__config_8h.html#a998aa6c443ce3cd76042c08e49620ff5", null ]
+    [ "argos_lib::talonsrx_config::has_forwardLimitSwitchSource< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_source.html", null ],
+    [ "argos_lib::talonsrx_config::has_forwardLimitSwitchSource< T, decltype((void) T::forwardLimitSwitchSource, void())>", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_source_3_01_t_00_01decltype_0774c486286bcb4d22c579262d641d9193.html", null ],
+    [ "argos_lib::talonsrx_config::has_reverseLimitSwitchSource< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_source.html", null ],
+    [ "argos_lib::talonsrx_config::has_reverseLimitSwitchSource< T, decltype((void) T::reverseLimitSwitchSource, void())>", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_source_3_01_t_00_01decltype_07c0d43d8da92ece58defcd8f6d348606e.html", null ],
+    [ "argos_lib::talonsrx_config::has_forwardLimitSwitchNormal< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_normal.html", null ],
+    [ "argos_lib::talonsrx_config::has_forwardLimitSwitchNormal< T, decltype((void) T::forwardLimitSwitchNormal, void())>", "structargos__lib_1_1talonsrx__config_1_1has__forward_limit_switch_normal_3_01_t_00_01decltype_07c002224cd862ad1baf2e3ae426710ccc.html", null ],
+    [ "argos_lib::talonsrx_config::has_reverseLimitSwitchNormal< T, typename >", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_normal.html", null ],
+    [ "argos_lib::talonsrx_config::has_reverseLimitSwitchNormal< T, decltype((void) T::reverseLimitSwitchNormal, void())>", "structargos__lib_1_1talonsrx__config_1_1has__reverse_limit_switch_normal_3_01_t_00_01decltype_078acbc695f39cf5401db2a28570ba2d19.html", null ],
+    [ "TalonSRXConfig", "talonsrx__config_8h.html#a8c8fd9b28a61b9d954c242cd6529f624", null ],
+    [ "TalonSRXConfig", "talonsrx__config_8h.html#a7a7e9ff5622909e0f6b1a2a6b0b8193c", null ]
 ];

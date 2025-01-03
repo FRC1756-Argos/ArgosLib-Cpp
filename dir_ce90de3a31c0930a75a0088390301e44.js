@@ -12,5 +12,6 @@ var dir_ce90de3a31c0930a75a0088390301e44 =
     [ "log.h", "log_8h.html", "log_8h" ],
     [ "nt_motor_pid_tuner.h", "nt__motor__pid__tuner_8h.html", "nt__motor__pid__tuner_8h" ],
     [ "nt_subscriber.h", "nt__subscriber_8h.html", "nt__subscriber_8h" ],
+    [ "odometry_aim.h", "odometry__aim_8h.html", "odometry__aim_8h" ],
     [ "swerve_utils.h", "swerve__utils_8h.html", "swerve__utils_8h" ]
 ];

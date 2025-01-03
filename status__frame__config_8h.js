@@ -1,5 +1,6 @@
 var status__frame__config_8h =
 [
+    [ "BaseTalon", "status__frame__config_8h.html#a3db3dc3c60fde9ecc1b6622acc3d5b07", null ],
     [ "MotorPresetMode", "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6", [
       [ "Basic", "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94", null ],
       [ "BasicFX", "status__frame__config_8h.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320", null ],

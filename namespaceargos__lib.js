@@ -12,7 +12,9 @@ var namespaceargos__lib =
       [ "kConeYellow", "namespaceargos__lib_1_1colors.html#afc454e57501ee2d9d8cbeddcf77a0196", null ],
       [ "kCubePurple", "namespaceargos__lib_1_1colors.html#a10efcc6b41962d6b2516acadf8984165", null ],
       [ "kHotPink", "namespaceargos__lib_1_1colors.html#a275f67fd896166c6cbbd6ff366f5482d", null ],
+      [ "kNoteOrange", "namespaceargos__lib_1_1colors.html#a0c1edda3f1f205f0a8332692b761a0cb", null ],
       [ "kOff", "namespaceargos__lib_1_1colors.html#af0938b62f29c04931815eae8828cecb6", null ],
+      [ "kPlum", "namespaceargos__lib_1_1colors.html#acf7c78d42787af469c699349a66195ed", null ],
       [ "kPurple", "namespaceargos__lib_1_1colors.html#a63c9bade3645de68ef156cdad142b940", null ],
       [ "kReallyBlue", "namespaceargos__lib_1_1colors.html#af4a9caf2b9517b42b612305a0e0a9b0d", null ],
       [ "kReallyGreen", "namespaceargos__lib_1_1colors.html#a4d4541c550646a5da34aea152bd8d1b4", null ],
@@ -25,7 +27,9 @@ var namespaceargos__lib =
       [ "kConeYellow", "namespaceargos__lib_1_1gamma__corrected__colors.html#a77c13bed42d1f21c685ccc38102b0f82", null ],
       [ "kCubePurple", "namespaceargos__lib_1_1gamma__corrected__colors.html#a7d4b84a11b000d5b791597041f4f9712", null ],
       [ "kHotPink", "namespaceargos__lib_1_1gamma__corrected__colors.html#a5d35b08a938e8494ea494faccb0c0633", null ],
+      [ "kNoteOrange", "namespaceargos__lib_1_1gamma__corrected__colors.html#a778fc12d8083c5a9eff619ae92fde2d6", null ],
       [ "kOff", "namespaceargos__lib_1_1gamma__corrected__colors.html#acdd24e765a84c7b697ce5175822c8386", null ],
+      [ "kPlum", "namespaceargos__lib_1_1gamma__corrected__colors.html#aba13304f46a415fa1965b0247bfbfeab", null ],
       [ "kPurple", "namespaceargos__lib_1_1gamma__corrected__colors.html#ade2d4dbae2a7383ed6ab4e106549b0fc", null ],
       [ "kReallyBlue", "namespaceargos__lib_1_1gamma__corrected__colors.html#a10e02625646e9f33e11b9b652fdee3e7", null ],
       [ "kReallyGreen", "namespaceargos__lib_1_1gamma__corrected__colors.html#a2eb15f17b941537bbe235197e10145bb", null ],
@@ -33,7 +37,12 @@ var namespaceargos__lib =
       [ "kWhite", "namespaceargos__lib_1_1gamma__corrected__colors.html#aa4ab6e69b7c4f10029a17c028cd315a9", null ]
     ] ],
     [ "led", "namespaceargos__lib_1_1led.html", "namespaceargos__lib_1_1led" ],
+    [ "odometry_aim", "namespaceargos__lib_1_1odometry__aim.html", [
+      [ "GetAngleToTarget", "namespaceargos__lib_1_1odometry__aim.html#a08bec02b75d0290047d5ed3c224961b3", null ],
+      [ "GetDistanceToTarget", "namespaceargos__lib_1_1odometry__aim.html#a90fbe8b23ceb82231b6313494b67eeed", null ]
+    ] ],
     [ "status_frame_config", "namespaceargos__lib_1_1status__frame__config.html", [
+      [ "BaseTalon", "namespaceargos__lib_1_1status__frame__config.html#a3db3dc3c60fde9ecc1b6622acc3d5b07", null ],
       [ "MotorPresetMode", "namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6", [
         [ "Basic", "namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6a972e73b7a882d0802a4e3a16946a2f94", null ],
         [ "BasicFX", "namespaceargos__lib_1_1status__frame__config.html#ab0898de418508676238dc0b2b9b210d6ab6c0e7acf588dbc494ac63f4e8022320", null ],
@@ -95,8 +104,9 @@ var namespaceargos__lib =
     [ "GammaCorrect", "namespaceargos__lib.html#a3a00bdc7d08d90270732e9c5d61a0509", null ],
     [ "GetCANAddr", "namespaceargos__lib.html#a0994287edce2234a26ff4e2a3948bd49", null ],
     [ "GetCANBus", "namespaceargos__lib.html#adf389e9320904d9e0b0ab1ad5bb43675", null ],
+    [ "GetPositionConversionFactor", "namespaceargos__lib.html#af6079d815b8153bb230664f85c02bbbf", null ],
     [ "GetRobotInstance", "namespaceargos__lib.html#a811945cb3eb97c182b7ca11fd143405a", null ],
-    [ "GetSensorConversionFactor", "namespaceargos__lib.html#af83601904c4c880bf312db76eb3dbed2", null ],
+    [ "GetVelocityConversionFactor", "namespaceargos__lib.html#a34f624b827c4718d5bfb4a163b3199f3", null ],
     [ "InThreshold", "namespaceargos__lib.html#a9171e0a9994ef5267f1f9ef32549ee8a", null ],
     [ "operator<", "namespaceargos__lib.html#ad64b1c60180c848877a6b120baf052e7", null ],
     [ "operator<", "namespaceargos__lib.html#a2503d5262181b3a6ba47396af30ab300", null ],
